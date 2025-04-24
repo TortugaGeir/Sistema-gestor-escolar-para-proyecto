@@ -96,7 +96,7 @@
             <!--end::Row-->
           </form>
           <div class="social-auth-links text-center mb-3 d-grid gap-2">
-            <p>- OR -</p>
+        
             <br>
           </div>
           <p class="mb-1"><a href="forgot-password.html">I forgot my password</a></p>

@@ -10,6 +10,6 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-  <script>window.location.href ='<?php echo APP_URL?>public/dist/index.php'</script>
+  <script>window.location.href ='<?php echo APP_URL?>/public/dist/index.php'</script>
 </body>
 </html>
