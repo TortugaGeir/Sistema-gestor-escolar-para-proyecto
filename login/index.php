@@ -1,11 +1,15 @@
 <?php
   include ('../app/config.php');
+  
 ?>
 
 <!doctype html>
 <html lang="en">
   <!--begin::Head-->
   <head>
+    <?php
+        session_start();
+    ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php echo APP_NAME; ?></title>
     <!--begin::Primary Meta Tags-->
@@ -48,6 +52,8 @@
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="<?php echo APP_URL;?>/public/dist/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <!--sweetalert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -66,7 +72,7 @@
         <div class="card-body login-card-body">
           <p class="login-box-msg">Iniciar sesión</p>
           <hr>
-          <form action="contoler_login.php" method="post">
+          <form action="controler_login.php" method="post">
             <div class="input-group mb-3">
               <input type="email" name="email" class="form-control" placeholder="Email" />
               <div class="input-group-text"><span class="bi bi-envelope"></span></div>
@@ -108,6 +114,24 @@
       </div>
     </div>
     <br><br><br>
+
+    <?php
+    if(isset($_SESSION ['mensaje'])){
+      $mensaje = $_SESSION ['mensaje'];
+    ?>
+    <script>
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "<?=$mensaje?>",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      });
+    </script>  
+
+   <?php
+      session_destroy();
+    }
+    ?>
     <!-- /.login-box -->
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
