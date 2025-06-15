@@ -72,7 +72,7 @@
         <div class="card-body login-card-body">
           <p class="login-box-msg">Iniciar sesión</p>
           <hr>
-          <form action="controler_login.php" method="post">
+          <form action="controller_login.php" method="post">
             <div class="input-group mb-3">
               <input type="email" name="email" class="form-control" placeholder="Email" />
               <div class="input-group-text"><span class="bi bi-envelope"></span></div>

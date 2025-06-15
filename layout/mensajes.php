@@ -14,7 +14,7 @@ if( (isset($_SESSION ['mensaje'])) && (isset($_SESSION ['icono']) ) ){
 </script>  
 
 <?php
-  unset(($_SESSION ['mensaje']));
-  unset(($_SESSION ['icono']));
+  unset($_SESSION ['mensaje']);
+  unset($_SESSION ['icono']);
 }
 ?>
