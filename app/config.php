@@ -5,7 +5,7 @@ define('USUARIO','root');
 define('PASSWORD','');
 define('BD','gescolar');
 
-define('APP_NAME','SISTEMA DE GESTIÓN ESCOLAR');
+define('APP_NAME','Sistema De Gestión Escolar');
 define('APP_URL','http://localhost/practicas');
 define('KEY_API_MAPS','');
 

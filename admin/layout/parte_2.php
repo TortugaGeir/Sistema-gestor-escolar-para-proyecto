@@ -1,11 +1,12 @@
+<br> <br><br><br> <br><br><br> <br><br><br><br><br><br><br><br><br><br><br>
 <footer class="app-footer">
       <!--begin::To the end-->
-      <div class="float-end d-none d-sm-inline">Anything you want</div>
+      <div class="float-end d-none d-sm-inline">V 1.0</div>
       <!--end::To the end-->
       <!--begin::Copyright-->
       <strong>
-        Copyright &copy; 2014-2024&nbsp;
-        <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        Copyright &copy; <?=$ano_actual;?>&nbsp;
+        <a href="https://www.instagram.com/aristortoza/" class="text-decoration-none ">Tortuga Geir</a>.
       </strong>
       All rights reserved.
       <!--end::Copyright-->
@@ -26,7 +27,7 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
   <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-  <script src="../public/dist/js/adminlte.js"></script>
+  <script src="<?=APP_URL;?>../public/dist/js/adminlte.js"></script>
   <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
   <script>
     const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
