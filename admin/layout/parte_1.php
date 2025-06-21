@@ -2,6 +2,14 @@
 session_start();
 if (isset($_SESSION['sesion_email'])){
   //echo "el usuario paso el login";
+  $email_session = $_SESSION['sesion_email'];
+  $query_session = $pdo->prepare("SELECT * FROM usuarios WHERE email = '$email_session' AND id_usuarios = '1' ");
+  $query_session->execute();
+
+  $datos_session_usuarios = $query_session->fetchAll(PDO:: FETCH_ASSOC);
+    foreach ($datos_session_usuarios as $datos_session_usuarios) {
+      $nombre_session_usuario = $datos_session_usuarios ['nombres'];
+    }
 
 }else{
   //echo " el usuario no realizo el login";
@@ -50,6 +58,8 @@ if (isset($_SESSION['sesion_email'])){
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -102,8 +112,8 @@ if (isset($_SESSION['sesion_email'])){
           <!--begin::Notifications Dropdown Menu-->
           <li class="nav-item dropdown">
             <a class="nav-link" data-bs-toggle="dropdown" href="#">
-              <i class="bi bi-bell-fill"></i>
-              <span class="navbar-badge badge text-bg-warning">15</span>
+              <i class="bi bi"><i class="bi bi-bell"></i></i>
+              <span class="navbar-badge badge text-bg-warning"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
               <span class="dropdown-item dropdown-header">15 Notifications</span>
@@ -459,7 +469,6 @@ if (isset($_SESSION['sesion_email'])){
           <!--begin::Row-->
           <div class="row">
             <div class="col-sm-6">
-              <h3 class="mb-0">Dashboard</h3>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-end">
