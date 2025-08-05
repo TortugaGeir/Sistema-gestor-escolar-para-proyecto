@@ -6,7 +6,7 @@ include ('../../app/controllers/roles/listado_roles.php');
 <div class= "content-wraper">
     <div class= "container">
       <div class= "row">
-      <h1>Listado de Categorias</h1> 
+      <h1>Listado de Roles</h1> 
         <br> <br> <br> <br>
 
       <div class="col-md-10">
@@ -21,7 +21,7 @@ include ('../../app/controllers/roles/listado_roles.php');
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <table border 1 class= "table table-striped table-hover">
+              <table  id="example2" class= "table table-striped table-hover">
           <thead>
             <tr>
             <th>Nro.</th>
@@ -41,9 +41,12 @@ include ('../../app/controllers/roles/listado_roles.php');
               <td><?=$nombre_rol;?></td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></button>
-                  <button type="button" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></button>
-                  <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                  <a href="show.php?id=<?=$id_roles;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                  <a href="edit.php?id=<?=$id_roles;?>" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></a>
+                  <form action="<?=APP_URL;?>/app/controllers/roles/delete.php" method="post">
+                    <input type="text" name="id_rol" value="<?=$id_roles;?>" hidden>
+                    <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3"></i></button>
+                  </form>
                 </div>
               </td>
             </tr>
@@ -66,3 +69,20 @@ include ('../../layout/mensajes.php');
 
 
 ?>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>

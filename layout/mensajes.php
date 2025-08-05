@@ -6,14 +6,16 @@ if( (isset($_SESSION ['mensaje'])) && (isset($_SESSION ['icono']) ) ){
 ?>
 <script>
 Swal.fire({
-  title: "Bienvenido!",
-  icon: "success",
-  draggable: true
-});
+  title: "Excelente!",
+  text: "<?=$mensaje?>",
+  icon: "success"
+})
 </script>  
 
 <?php
   unset($_SESSION ['mensaje']);
   unset($_SESSION ['icono']);
 }
+
+
 ?>

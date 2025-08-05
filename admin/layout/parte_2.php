@@ -1,5 +1,4 @@
-<br> <br><br><br> <br><br><br> <br><br><br><br><br><br><br><br><br><br><br>
-<footer class="app-footer">
+<br> <br><br><br> <br><br>
       <!--begin::To the end-->
       <div class="float-end d-none d-sm-inline">V 1.0</div>
       <!--end::To the end-->
@@ -27,8 +26,25 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
   <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-  <script src="<?=APP_URL;?>../public/dist/js/adminlte.js"></script>
+  <script src="<?=APP_URL;?>/public/dist/js/adminlte.js"></script>
   <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+  <!-- jQuery -->
+<script src="<?=APP_URL;?>../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?=APP_URL;?>../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables  & Plugins -->
+<script src="<?=APP_URL;?>../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/jszip/jszip.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?=APP_URL;?>../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="<?=APP_URL;?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <script>
     const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
     const Default = {

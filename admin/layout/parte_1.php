@@ -60,6 +60,10 @@ if (isset($_SESSION['sesion_email'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- DataTables -->
+  <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -228,12 +232,6 @@ if (isset($_SESSION['sesion_email'])){
                   <a href="../dist/pages/index2.html" class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
                     <p>Dashboard v2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/index3.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Dashboard v3</p>
                   </a>
                 </li>
               </ul>

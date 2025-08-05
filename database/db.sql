@@ -19,7 +19,7 @@ VALUES ('Juan Carlos','Villa Godoy','ADMIN','admin@email.com','pppp','2025-30-03
 
 CREATE TABLE roles (
     id_roles      INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre_rol    VARCHAR (255) NOT NULL,
+    nombre_rol    VARCHAR (255) NOT NULL UNIQUE KEY,
   
     fyh_create   DATETIME  NULL,
     fyh_update   DATETIME NULL,

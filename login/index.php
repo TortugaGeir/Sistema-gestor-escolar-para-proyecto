@@ -93,7 +93,7 @@
               <div class="col-4">
                 <div class="d-grid gap-2">
                   <br>
-                  <button type="submit" class="btn btn-primary">Ingresar</button>
+                  <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                 
                 </div>
               </div>
