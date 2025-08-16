@@ -3,12 +3,13 @@
 if( (isset($_SESSION ['mensaje'])) && (isset($_SESSION ['icono']) ) ){
   $mensaje = $_SESSION ['mensaje'];
   $icono = $_SESSION ['icono'];
+  $titulo = $_SESSION ['titulo']
 ?>
 <script>
 Swal.fire({
-  title: "Excelente!",
+  title: "<?=$titulo?>",
   text: "<?=$mensaje?>",
-  icon: "success"
+  icon: "<?=$icono?>"
 })
 </script>  
 

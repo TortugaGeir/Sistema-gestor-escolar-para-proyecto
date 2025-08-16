@@ -16,10 +16,12 @@ if($nombre_rol == ""){
   try{
     if($sentencia->execute()){
       session_start();
+        $_SESSION['titulo'] = "Exelente";
         $_SESSION['mensaje'] = "Se ha registrado correctamente";
         $_SESSION['icono'] = "success";
         header('Location:'.APP_URL."/admin/roles");
     }else{
+      $_SESSION['titulo'] = "Oops";
       $_SESSION['mensaje'] = "No se ha podido realizar el registro";
       $_SESSION['icono'] = "error";
       header('Location:'.APP_URL."/admin/roles/create.php");
@@ -28,7 +30,7 @@ if($nombre_rol == ""){
 
 
   }catch (Exception $exception) {
-
+    $_SESSION['titulo'] = "Oops";
     $_SESSION['mensaje'] = "Rol ya existente";
     $_SESSION['icono'] = "error";
     header('Location:'.APP_URL."/admin/roles/create.php");

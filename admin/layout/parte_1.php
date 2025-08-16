@@ -236,25 +236,20 @@ if (isset($_SESSION['sesion_email'])){
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="../dist/pages/generate/theme.html" class="nav-link">
-                <i class="nav-icon bi bi-palette"></i>
-                <p>Theme Generate</p>
-              </a>
-            </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-box-seam-fill"></i>
+                <i class="nav-icon bi"><i class="bi bi-people-fill"></i></i>
                 <p>
-                  Widgets
+                  Usuarios
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../dist/pages/widgets/small-box.html" class="nav-link">
+                  <a href="<?=APP_URL;?>/admin/usuarios" class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Small Box</p>
+                    <p>Listado de Usuarios</p>
                   </a>
                 </li>
                 <li class="nav-item">

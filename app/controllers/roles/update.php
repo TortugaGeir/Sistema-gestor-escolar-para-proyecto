@@ -12,7 +12,11 @@ if($nombre_rol == ""){
   header('Location:'.APP_URL."/admin/roles/edit.php?id=".$id_rol);
 }else{
   $sentencia = $pdo->prepare ("UPDATE FROM roles 
-  SET 'nombre_rol', 'fyh_update' WHERE id_roles = '$id_rol' ");
+  SET ':nombre_rol', ':fyh_update' WHERE id_roles = ':id_rol' ");
+
+  $sentencia->bindParam (':nombre_rol',$nombre_rol);
+  $sentencia->bindParam (':fyh_update',$fechaHora);
+  $sentencia->bindParam (':id_rol',$id_rol);
   
   try{
     if($sentencia->execute()){
