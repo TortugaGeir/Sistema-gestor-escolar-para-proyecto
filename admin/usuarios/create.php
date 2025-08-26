@@ -81,7 +81,7 @@ include ('../../app/controllers/roles/listado_roles.php');
             <div class="row">
                   <div class="col-md-10">
                     <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-success">Registrar</button>
                     <a href="<?=APP_URL;?>/admin/usuarios" class= "btn btn-secondary">Cancelar</a>
                     </div>
                   </div>

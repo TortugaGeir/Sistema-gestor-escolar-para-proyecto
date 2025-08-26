@@ -56,10 +56,30 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="show.php?id=<?=$id_usuarios;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
                   <a href="edit.php?id=<?=$id_usuarios;?>" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></a>
-                  <form action="<?=APP_URL;?>/app/controllers/roles/delete.php" method="post">
-                    <input type="text" name="id_rol" value="<?=$id_usuarios;?>" hidden>
+                  <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_usuarios;?>(event)" method="post" id="miFormulario<?=$id_usuarios;?>">
+                    <input type="text" name="id_usuarios" value="<?=$id_usuarios;?>" hidden>
                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3"></i></button>
                   </form>
+              <script>
+              function preguntar<?=$id_usuarios;?>(event) {
+                event.preventDefault();
+                  Swal.fire({
+                    title: 'Eliminar registro',
+                    text: '¿Desea eliminar este registro?',
+                    icon: 'question',
+                    showDenyButton: true,
+                    confirmButtonText: 'Eliminar',
+                    confirmButtonColor: '#a5161d',
+                    denyButtonColor: '#270a0a',
+                    denyButtonText: 'Cancelar',
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                      var form = $('#miFormulario<?=$id_usuarios;?>');
+                      form.submit();
+                        }
+                      });
+                }
+              </script>
                 </div>
               </td>
             </tr>
@@ -74,7 +94,6 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
             </div>
     </div>
 </div>
-
 
 <?php
 include ('../layout/parte_2.php');

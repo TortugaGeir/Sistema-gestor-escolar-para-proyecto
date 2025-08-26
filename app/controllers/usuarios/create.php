@@ -1,6 +1,6 @@
 <?php
 
-include ('../../../app/config.php');
+require_once ('../../../app/config.php');
 
 $nombres = $_POST ['nombres'];
 $apellidos = $_POST ['apellidos'];

@@ -20,7 +20,7 @@ include ('../../app/controllers/usuarios/datos_del_usuario.php');
                 <!-- /.card-tools -->
               </div>
               <!-- /.card-header -->
-                <form action="<?=APP_URL;?>/app/controllers/usuarios/create.php" method="post">
+                <form action="<?=APP_URL;?>/app/controllers/usuarios/update.php" method="post">
                   <div class="card-body">
                 <div class="row">
                   <div class="col-md-4">
@@ -28,17 +28,21 @@ include ('../../app/controllers/usuarios/datos_del_usuario.php');
                       <hr>
                 <!--Formulario-->
                       <label for=""><b>Nombre del Rol</b></label>
-                      <a href="<?=APP_URL;?>/admin/roles/update.php"><i class="bi bi-bookmark-plus"></i></a>
+                      <input type="text" name="id_usuario" value="<?=$id_usuario?>" hidden>
+                      <a href="<?=APP_URL;?>/admin/roles/create.php"><i class="bi bi-bookmark-plus"></i></a>
                       <select name="rol_id" id="" class="form-control" >
                       <?php
                         foreach ($roles as $roles){
                           $nombre_rol_tabla = $roles['nombre_rol'];?>
-                      <option value="<?=$roles ['id_roles']; ?>" 
+                      <option value="<?=$roles ['id_roles'];?>" 
                       <?php
                       if ($nombre_rol==$nombre_rol_tabla){
-                    ?> selected ="selected"> 
-                    <?php } ?>
-                        <?=$roles ['nombre_rol']; ?>
+                    ?> 
+                      selected="selected"> 
+                    <?php 
+                    } 
+                  ?>
+                        <?=$roles ['nombre_rol'];?>
                       </option>
                       <?php
                         }

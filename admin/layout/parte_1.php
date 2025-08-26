@@ -252,70 +252,21 @@ if (isset($_SESSION['sesion_email'])){
                     <p>Listado de Usuarios</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/widgets/info-box.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>info Box</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/widgets/cards.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Cards</p>
-                  </a>
-                </li>
               </ul>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-clipboard-fill"></i>
+                <i class="nav-icon bi"><i class="bi bi-gear"></i></i>
                 <p>
-                  Layout Options
-                  <span class="nav-badge badge text-bg-secondary me-3">6</span>
+                  Configuraciones
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../dist/pages/layout/unfixed-sidebar.html" class="nav-link">
+                  <a href="<?=APP_URL;?>/admin/configuraciones" class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Default Sidebar</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/layout/fixed-sidebar.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Fixed Sidebar</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/layout/layout-custom-area.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Layout <small>+ Custom Area </small></p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/layout/sidebar-mini.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Sidebar Mini</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/layout/collapsed-sidebar.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Sidebar Mini <small>+ Collapsed</small></p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/layout/logo-switch.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Sidebar Mini <small>+ Logo Switch</small></p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/layout/layout-rtl.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Layout RTL</p>
+                    <p>Configurar</p>
                   </a>
                 </li>
               </ul>

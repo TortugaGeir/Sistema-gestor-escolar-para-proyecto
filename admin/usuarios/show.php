@@ -2,9 +2,9 @@
 
 $id_usuario = $_GET['id'];
 
-include ('../../app/config.php');
-include ('../layout/parte_1.php');
-include ('../../app/controllers/usuarios/datos_del_usuario.php');
+require_once ('../../app/config.php');
+include_once ('../layout/parte_1.php');
+include_once ('../../app/controllers/usuarios/datos_del_usuario.php');
 ?>
 <div class= "content-wraper">
     <div class= "container">
