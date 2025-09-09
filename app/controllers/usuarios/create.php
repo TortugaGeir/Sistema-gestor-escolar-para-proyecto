@@ -34,7 +34,7 @@ try{
         header('Location:'.APP_URL."/admin/usuarios");
   }
   else{
-      session_start();
+        session_start();
         $_SESSION['titulo'] = "Opps";
         $_SESSION['mensaje'] = "No se ha podido registrar en la base de datos";
         $_SESSION['icono'] = "error";

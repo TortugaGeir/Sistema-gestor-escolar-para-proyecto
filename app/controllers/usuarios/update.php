@@ -32,7 +32,7 @@ if($password == ""){
             header('Location:'.APP_URL."/admin/usuarios");
       }
       else{
-          
+          session_start();
             $_SESSION['titulo'] = "Opps";
             $_SESSION['mensaje'] = "No se ha podido actualizar en la base de datos";
             $_SESSION['icono'] = "error";
@@ -41,6 +41,13 @@ if($password == ""){
     } catch(Exception $exception){
 
     echo "Error en la base de datos: " . $exception->getMessage();
+
+     ?>
+      <script>
+
+      window.history.back();
+      </script>
+    <?php
 
     }
 
@@ -74,7 +81,7 @@ if($password == ""){
             header('Location:'.APP_URL."/admin/usuarios");
       }
       else{
-          
+          session_start();
             $_SESSION['titulo'] = "Opps";
             $_SESSION['mensaje'] = "No se ha podido actualizar en la base de datos";
             $_SESSION['icono'] = "error";
@@ -97,7 +104,7 @@ if($password == ""){
     }
 
     }else{
-            
+            session_start();
             $_SESSION['titulo'] = "Opps";
             $_SESSION['mensaje'] = "Las cotraseñas registradas no coinciden";
             $_SESSION['icono'] = "error";

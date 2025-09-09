@@ -13,7 +13,7 @@ include_once ('../../../app/controllers/configuraciones/instituciones/listado_in
       <div class="col-md-12">
       <div class="card card-outline card-primary">
               <div class="card-header">
-                <h3 class="card-title">instituciones Registradas</h3>
+                <h3 class="card-title">Instituciones Registradas</h3>
 
                 <div class="card-tools">
                   <a href="create.php" class="btn btn-primary"><i class="bi bi-pencil-square"></i>Agregar nueva Institución</a>
@@ -57,7 +57,9 @@ include_once ('../../../app/controllers/configuraciones/instituciones/listado_in
             <tr>
               <td><?=$contador_institucion;?></td>
               <td><?=$nombre_institucion;?></td>
-              <td><?=$logo ;?></td>
+              <td>
+                <img src="<?=APP_URL."/public/images/configuraciones/".$logo;?>" width="100px" alt="">
+              </td>
               <td><?=$direccion;?></td>
               <td><?=$tipo_institucion;?></td>
               <td><?=$correo;?></td>
@@ -114,3 +116,20 @@ include ('../../../layout/mensajes.php');
 
 
 ?>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>

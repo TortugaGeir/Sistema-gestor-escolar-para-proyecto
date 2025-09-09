@@ -1,21 +1,19 @@
 <?php
-include ('../app/config.php');
-include ('layout/parte_1.php');
-include('../app/controllers/roles/listado_roles.php');
-
+include_once ('../app/config.php');
+include_once ('layout/parte_1.php');
+include_once('../app/controllers/roles/listado_roles.php');
+include_once('../app/controllers/usuarios/listado_de_usuarios.php');
 ?>
     <div class="content-wrapper">
       <div class="container">
         <div class="container">
           <div class="row">
-            <h1><?=APP_NAME;?></h1>
+            <h1 style="margin-bottom: 24px;"><?=APP_NAME;?></h1>
           </div>
-          <br><br>
-          <div class="form-row align-items-left">
-            <div class="col">
-            <div class="col-lg-4 col-6">
-            <!-- small card -->
-            <div class="small-box bg-warning">
+          <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
               <div class="inner">
                 <?php
                 $contador_roles = 0;
@@ -25,54 +23,69 @@ include('../app/controllers/roles/listado_roles.php');
                 ?>
                 <h3><?=$contador_roles;?></h3>
 
-                <p>Roles Registrados</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
-                      <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5z"/>
-                      <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1z"/>
-                    </svg>
-                <a href="<?=APP_URL;?>/admin/roles"
-                  class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                  Más información <i class="bi bi-link-45deg"></i>
-                </a>
-                </div>
-                
+                <p>Roles registrados</p>
               </div>
-          <div class="form-row align-items-left">
-            <div class="col">
-            <div class="col-lg-4 col-6">
-            <!-- small card -->
-            <div class="small-box bg-warning">
+              <div class="icon">
+                <i class="ion"><i class="bi bi-bookmarks-fill"></i></i>
+              </div>
+              <a href="#" class="small-box-footer">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
               <div class="inner">
                 <?php
-                $contador_roles = 0;
-                  foreach($roles as $roles){
-                    $contador_roles = $contador_roles + 1;
+                $contador_usuarios = 0;
+                  foreach($usuarios as $usuarios){
+                    $contador_usuarios = $contador_usuarios + 1;
                   }
                 ?>
-                <h3><?=$contador_roles;?></h3>
+                <h3><?=$contador_usuarios;?></h3>
 
-                <p>Roles Registrados</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
-                      <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5z"/>
-                      <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1z"/>
-                    </svg>
-                <a href="<?=APP_URL;?>/admin/roles"
-                  class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                  Más información <i class="bi bi-link-45deg"></i>
-                </a>
-                </div>
-                
+                <p>Usuarios Registrados</p>
               </div>
-          
-              
-          
+              <div class="icon">
+                <i class="ion"></i>
+              </div>
+              <a href="#" class="small-box-footer">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
+            </div>
           </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>User Registrations</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>65</h3>
+
+                <p>Unique Visitors</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
         </div>
-        
-      </div>
-    </div>
 
-
+                
 
 
 
