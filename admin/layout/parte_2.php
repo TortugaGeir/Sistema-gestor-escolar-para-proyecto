@@ -28,11 +28,11 @@
   <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
   <script src="<?=APP_URL;?>/public/dist/js/adminlte.js"></script>
   <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
-  <!-- jQuery -->
-<script src="<?=APP_URL;?>../../plugins/jquery/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="<?=APP_URL;?>../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- DataTables  & Plugins -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
 <script src="<?=APP_URL;?>../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?=APP_URL;?>../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?=APP_URL;?>../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
@@ -44,7 +44,7 @@
 <script src="<?=APP_URL;?>../../plugins/pdfmake/vfs_fonts.js"></script>
 <script src="<?=APP_URL;?>../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?=APP_URL;?>../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="<?=APP_URL;?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="<?=APP_URL;?>../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <script>
     const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
     const Default = {

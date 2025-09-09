@@ -10,7 +10,7 @@ include ('../../app/controllers/roles/listado_roles.php');
         <br> <br> <br> <br>
 
       <div class="col-md-10">
-      <div class="card card-outline card-success">
+      <div class="card card-outline card-primary">
               <div class="card-header">
                 <h3 class="card-title">Listado de Roles</h3>
 
@@ -89,6 +89,7 @@ include ('../../layout/mensajes.php');
 
 
 ?>
+<!-- Page specific script -->
 <script>
   $(function () {
     $("#example1").DataTable({

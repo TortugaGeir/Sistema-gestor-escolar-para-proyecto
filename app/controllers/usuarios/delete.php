@@ -1,5 +1,5 @@
 <?php
-include ('../../../app/config.php');
+require_once ('../../../app/config.php');
 
 $id_usuarios = $_POST['id_usuarios'];
 

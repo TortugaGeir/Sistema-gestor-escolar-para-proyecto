@@ -56,3 +56,16 @@ CREATE TABLE configuracion_instituciones (
 
 INSERT INTO configuracion_instituciones (nombre_institución,logo,direccion,tipo_institucion,email,telefono,rif,cog_dea,fyh_create,estado)
 VALUES ('U.E Los Santos','logo.jpg','Zona La Guneta Calle N°13','PUBLICA','uelossantos@gmail.com','4269857801','128956789','0001298570','2025-21-08 11:58','1');
+
+CREATE TABLE periodo_educativo (
+  id_periodo  INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  periodo     VARCHAR (255) NOT NULL,
+  momento     VARCHAR (255) NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11)
+)ENGINE=InnoDB;
+
+INSERT INTO periodo_educativo (periodo,momento,fyh_create,estado)
+VALUES ('2024-2025','2°','2025-09-05 15:45:11','1');

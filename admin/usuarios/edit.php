@@ -30,7 +30,7 @@ include ('../../app/controllers/usuarios/datos_del_usuario.php');
                       <label for=""><b>Nombre del Rol</b></label>
                       <input type="text" name="id_usuario" value="<?=$id_usuario?>" hidden>
                       <a href="<?=APP_URL;?>/admin/roles/create.php"><i class="bi bi-bookmark-plus"></i></a>
-                      <select name="rol_id" id="" class="form-control" >
+                      <select name="rol_id" id="" class="form-select" >
                       <?php
                         foreach ($roles as $roles){
                           $nombre_rol_tabla = $roles['nombre_rol'];?>

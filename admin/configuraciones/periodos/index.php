@@ -1,82 +1,62 @@
 <?php
 require_once ('../../../app/config.php');
 include_once ('../../layout/parte_1.php');
-include_once ('../../../app/controllers/configuraciones/instituciones/listado_instituciones.php');
+include_once ('../../../app/controllers/configuraciones/periodos/listado_periodos.php');
 
 ?>
 <div class= "content-wraper">
     <div class= "container">
       <div class= "row">
-      <h1>Listado de instituciones</h1> 
+      <h1>Listado de Periodos Escolares</h1> 
         <br> <br> <br> <br>
 
-      <div class="col-md-12">
+      <div class="col-md-8">
       <div class="card card-outline card-primary">
               <div class="card-header">
-                <h3 class="card-title">Instituciones Registradas</h3>
+                <h3 class="card-title">Periodos Registrados</h3>
 
                 <div class="card-tools">
-                  <a href="create.php" class="btn btn-primary"><i class="bi bi-pencil-square"></i>Agregar nueva Institución</a>
+                  <a href="create.php" class="btn btn-primary"><i class="bi bi-pencil-square"></i>Agregar un nuevo Periodo Educativo</a>
                 </div>
                 <!-- /.card-tools -->
               </div>
               <!-- /.card-header -->
-              <div class="card-body overflow-y-scroll">
+              <div class="card-body">
               <table  id="example2" class= "table table-striped table-hover">
           <thead>
             <tr>
             <th>Nro.</th>
-            <th>Nombre de la Institución</th>
-            <th>Logo</th>
-            <th>Dirección</th>
-            <th>Tipo de Institución</th>
-            <th>Correo</th>
-            <th>Telefono</th>
-            <th>Rif</th>
-            <th>Código Dea</th>
+            <th>Perido Escolar</th>
+            <th>Momento</th>
             <th>Estado</th>
             <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            $contador_institucion = 0;
-            foreach ($instituciones as $instituciones) {
-              $contador_institucion = $contador_institucion +1;
-              $id_intituciones = $instituciones ['id_config_institucion'];
-              $nombre_institucion = $instituciones ['nombre_institucion'];
-              $logo = $instituciones ['logo'];
-              $direccion = $instituciones ['direccion'];
-              $tipo_institucion = $instituciones ['tipo_institucion'];
-              $correo = $instituciones ['email'];
-              $telefono = $instituciones ['telefono'];
-              $rif = $instituciones ['rif'];
-              $cog_dea = $instituciones ['cog_dea'];
-              $estado = $instituciones ['estado'];
+            $contador_periodos = 0;
+            foreach ($periodos as $periodos) {
+              $contador_periodos = $contador_periodos +1;
+              $id_periodo = $periodos ['id_periodo'];
+              $periodo = $periodos ['periodo'];
+              $momento = $periodos ['momento'];
+              $estado = $periodos ['estado'];
               ?>
             <tr>
-              <td><?=$contador_institucion;?></td>
-              <td><?=$nombre_institucion;?></td>
-              <td>
-                <img src="<?=APP_URL."/public/images/configuraciones/".$logo;?>" width="100px" alt="">
-              </td>
-              <td><?=$direccion;?></td>
-              <td><?=$tipo_institucion;?></td>
-              <td><?=$correo;?></td>
-              <td><?=$telefono;?></td>
-              <td><?=$rif;?></td>
-              <td><?=$cog_dea;?></td>
+              <td><?=$contador_periodos;?></td>
+              <td><?=$periodo;?></td>
+              <td><?=$momento;?></td>
               <td><?=$estado;?></td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <a href="show.php?id=<?=$id_intituciones;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                  <a href="edit.php?id=<?=$id_intituciones;?>" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></a>
-                  <form action="<?=APP_URL;?>/app/controllers/configuraciones/instituciones/delete.php" onclick="preguntar<?=$id_intituciones;?>(event)" method="post" id="miFormulario<?=$id_intituciones;?>">
-                    <input type="text" name="id_instituciones" value="<?=$id_intituciones;?>" hidden>
+                  <a href="show.php?id=<?=$id_periodos;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                  <a href="edit.php?id=<?=$id_periodo;?>" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></a>
+                  <form action="<?=APP_URL;?>/app/controllers/configuraciones/periodos/delete.php" onclick="preguntar<?=$id_periodo;?>(event)" method="post" id="miFormulario<?=$id_periodo;?>">
+                    <input type="text" name="id_periodo" value="<?=$id_periodo;?>" hidden>
                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3"></i></button>
                   </form>
               <script>
-              function preguntar<?=$id_intituciones;?>(event) {
+              function preguntar<?=$id_periodo;?>(event) {
                 event.preventDefault();
                   Swal.fire({
                     title: 'Eliminar registro',
@@ -89,7 +69,7 @@ include_once ('../../../app/controllers/configuraciones/instituciones/listado_in
                     denyButtonText: 'Cancelar',
                     }).then((result) => {
                       if (result.isConfirmed) {
-                      var form = $('#miFormulario<?=$id_intituciones;?>');
+                      var form = $('#miFormulario<?=$id_periodo;?>');
                       form.submit();
                         }
                       });

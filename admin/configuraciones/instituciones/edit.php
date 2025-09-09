@@ -28,13 +28,15 @@ $id_config_institucion = $_GET['id'];
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>Nombre de la Institución</b></label>
-                          <input type="text" name="nombre_institucion" class="form-control" required>
+                          <input type="text" name="id_config_institucion" value="<?=$id_config_institucion;?>" hidden>
+                          <input type="text" name="logo" value="<?=$logo;?>" hidden>
+                          <input type="text" name="nombre_institucion" value="<?=$nombre_institucion;?>" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>Correo  de la Institución</b></label>
-                          <input type="email" name="email_institucion" class="form-control" required>
+                          <input type="email" name="email_institucion" value="<?=$email_institucion;?> " class="form-control">
                         </div>
                       </div>
                       
@@ -43,7 +45,7 @@ $id_config_institucion = $_GET['id'];
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>Tipo de Institución</b></label>
-                          <select name="tipo_institucion" id="" class="form-select" required>
+                          <select name="tipo_institucion" id="" class="form-select">
                             <option value="publica">Pública</option>
                             <option value="privada">Privada</option>
                           </select>
@@ -52,7 +54,7 @@ $id_config_institucion = $_GET['id'];
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>Telefono</b></label>
-                          <input type="number" name="telefono_institucion" class="form-control">
+                          <input type="number" name="telefono_institucion" value="<?=$telefono_institucion;?>" class="form-control">
                         </div>
                       </div>
                       
@@ -61,20 +63,24 @@ $id_config_institucion = $_GET['id'];
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>RIF</b></label>
-                          <input type="number" name="rif_institucion" class="form-control" required>
+                          <input type="number" name="rif_institucion"  value="<?=$rif_institucion;?>" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>Código DEA</b></label>
-                          <input type="text" name="codigo_dea" class="form-control" required>
+                          <input type="text" name="codigo_dea" value="<?=$codigo_dea;?>" class="form-control">
                         </div>
                       </div>
                     </div>
                       <div class="row">
                         <div class="col-md-12">
                           <label for=""><b>Dirección</b></label>
-                          <textarea class="form-control" name="direccion_institucion" rows="3" placeholder="Escriba la Dirección" style="margin-bottom: 12px;" required></textarea>
+                          <textarea class="form-control" name="direccion_institucion"  rows="3"  style="margin-bottom: 12px;">
+                            <?php
+                              echo htmlspecialchars($direccion_institucion);
+                            ?>
+                          </textarea>
                         </div>
                       </div>
                   </div>
@@ -85,7 +91,9 @@ $id_config_institucion = $_GET['id'];
                           <label for=""><b>Logo de la Institución</b></label>
                           <input type="file" name="logo" id="file" class="form-control btn btn-primary" style="margin-bottom: 24px;">
                           <center> 
-                            <output id="list"></output>
+                            <output id="list">
+                              <img src="<?=APP_URL."/public/images/configuraciones/".$logo;?>" width="200px" alt="">
+                            </output>
                           </center>
                         </div>
                         </div>
@@ -97,7 +105,7 @@ $id_config_institucion = $_GET['id'];
             <div class="row">
                   <div class="col-md-10">
                     <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
                     <a href="<?=APP_URL;?>/admin/configuraciones/instituciones" class= "btn btn-secondary">Cancelar</a>
                     </div>
                   </div>
