@@ -69,3 +69,21 @@ CREATE TABLE periodo_educativo (
 
 INSERT INTO periodo_educativo (periodo,momento,fyh_create,estado)
 VALUES ('2024-2025','2°','2025-09-05 15:45:11','1');
+
+CREATE TABLE niveles (
+  id_nivel          INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  periodo_id        INT (11) NOT NULL,
+  nivel             VARCHAR (255) NOT NULL,
+  turno             VARCHAR (255) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (periodo_id) REFERENCES periodo_educativo (id_periodo) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
+
+INSERT INTO niveles (periodo_id ,nivel,turno,fyh_create,estado)
+VALUES ('1','INICIAL','DIURNO','2025-21-08 11:58','1');

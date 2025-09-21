@@ -66,7 +66,18 @@ include_once ('../../../app/controllers/configuraciones/instituciones/listado_in
               <td><?=$telefono;?></td>
               <td><?=$rif;?></td>
               <td><?=$cog_dea;?></td>
-              <td><?=$estado;?></td>
+            <td>
+            <?php
+            if($estado == "1"){?>
+
+            <button class="btn btn-success btn-sm" style="border-radius: 20px;">Activo</button>
+            <?php
+            }else{?>
+            <button class="btn btn-danger btn-sm" style="border-radius: 20px;">Inactivo</button>
+            <?php
+            }
+            ?>
+            </td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="show.php?id=<?=$id_intituciones;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>

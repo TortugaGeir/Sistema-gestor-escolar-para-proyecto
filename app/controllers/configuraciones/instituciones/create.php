@@ -9,7 +9,13 @@ $telefono_institucion = $_POST['telefono_institucion'];
 $rif_institucion = $_POST['rif_institucion'];
 $codigo_dea = $_POST['codigo_dea'];
 $direccion_institucion = $_POST['direccion_institucion'];
+$estado = $_POST['estado'];
 
+if($estado == "ACTIVO"){
+  $estado = 1;
+}else{
+  $estado = 0;
+}
 
 
 if ($_FILES['logo']['name'] !=null){
@@ -38,11 +44,11 @@ $sentencia->bindParam(':telefono',$telefono_institucion);
 $sentencia->bindParam(':rif',$rif_institucion);
 $sentencia->bindParam(':cog_dea',$codigo_dea);
 $sentencia->bindParam(':fyh_create',$fechaHora);
-$sentencia->bindParam(':estado',$estado_de_registro);
+$sentencia->bindParam(':estado',$estado);
 
 try{
 if($sentencia->execute()){
-      session_start();
+session_start();
         $_SESSION['titulo'] = "Excelente!";
         $_SESSION['mensaje'] = "Se ha registrado la institución correctamente";
         $_SESSION['icono'] = "success";

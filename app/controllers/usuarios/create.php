@@ -8,6 +8,14 @@ $rol_id = $_POST ['rol_id'];
 $email = $_POST ['email'];
 $password = $_POST ['password'];
 $password_repet = $_POST ['password-repet'];
+$estado = $_POST['estado'];
+
+if($estado == "ACTIVO"){
+  $estado = 1;
+}else{
+  $estado = 0;
+}
+
 
 if($password == $password_repet){
 
@@ -23,7 +31,7 @@ $sentencia->bindParam (':rol_id',$rol_id);
 $sentencia->bindParam (':email',$email);
 $sentencia->bindParam (':password',$password);
 $sentencia->bindParam (':fyh_create',$fechaHora);
-$sentencia->bindParam (':estado',$estado_de_registro);
+$sentencia->bindParam (':estado',$estado);
 
 try{
   if($sentencia->execute()){

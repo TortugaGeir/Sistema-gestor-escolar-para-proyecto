@@ -51,7 +51,18 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
               <td><?=$Apellidos_usuarios;?></td>
               <td><?=$Rol;?></td>
               <td><?=$correo;?></td>
-              <td><?=$estado;?></td>
+            <td>
+            <?php
+            if($estado == "1"){?>
+
+            <button class="btn btn-success btn-sm" style="border-radius: 20px;">Activo</button>
+            <?php
+            }else{?>
+            <button class="btn btn-danger btn-sm" style="border-radius: 20px;">Inactivo</button>
+            <?php
+            }
+            ?>
+            </td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="show.php?id=<?=$id_usuarios;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>

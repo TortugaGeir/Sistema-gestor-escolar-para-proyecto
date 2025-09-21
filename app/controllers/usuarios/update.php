@@ -9,11 +9,19 @@ $rol_id = $_POST ['rol_id'];
 $email = $_POST ['email'];
 $password = $_POST ['password'];
 $password_repet = $_POST ['password-repet'];
+$estado = $_POST['estado'];
+
+if($estado == "ACTIVO"){
+  $estado = 1;
+}else{
+  $estado = 0;
+}
+
 
 if($password == ""){
 
     $sentencia = $pdo->prepare ("UPDATE usuarios
-    SET nombres=:nombres, apellidos=:apellidos, rol_id=:rol_id, email=:email, fyh_update=:fyh_update 
+    SET nombres=:nombres, apellidos=:apellidos, rol_id=:rol_id, email=:email, fyh_update=:fyh_update, estado=:estado 
     WHERE id_usuarios=:id_usuario");
 
     $sentencia->bindParam (':nombres',$nombres);
@@ -22,6 +30,7 @@ if($password == ""){
     $sentencia->bindParam (':email',$email);
     $sentencia->bindParam (':fyh_update',$fechaHora);
     $sentencia->bindParam (':id_usuario',$id_usuario);
+    $sentencia->bindParam (':estado',$estado);
 
     try{
       if($sentencia->execute()){

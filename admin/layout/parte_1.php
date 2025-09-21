@@ -154,7 +154,7 @@ if (isset($_SESSION['sesion_email'])){
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
               <img src="https://external-preview.redd.it/kawaii-sea-turtle-digital-illustration-by-me-v0-rakD3EZE4dJ7fyPUQ4gK5-w9aE2wXCdGAuxOqXzwQqs.jpg?width=640&crop=smart&auto=webp&s=38c7fb2566a2a46f96434e645026329b3781ea4d" class="user-image rounded-circle shadow"
                 alt="User Image" />
-              <span class="d-none d-md-inline">Tortuga Geir</span>
+              <span class="d-none d-md-inline"><?=$nombre_session_usuario;?></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
               <!--begin::User Image-->
@@ -228,12 +228,6 @@ if (isset($_SESSION['sesion_email'])){
                     <p>Listado de Roles</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/index2.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Dashboard v2</p>
-                  </a>
-                </li>
               </ul>
             </li>
 
@@ -273,29 +267,17 @@ if (isset($_SESSION['sesion_email'])){
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-tree-fill"></i>
+                <i class="nav-icon"><i class="bi bi-bar-chart-fill"></i></i>
                 <p>
-                  UI Elements
+                  Niveles
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../dist/pages/UI/general.html" class="nav-link">
+                  <a href="<?=APP_URL;?>/admin/niveles" class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>General</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/UI/icons.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Icons</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../dist/pages/UI/timeline.html" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Timeline</p>
+                    <p>Listado de Niveles</p>
                   </a>
                 </li>
               </ul>

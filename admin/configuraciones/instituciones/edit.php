@@ -46,8 +46,17 @@ $id_config_institucion = $_GET['id'];
                         <div class="form-group">
                           <label for=""><b>Tipo de Institución</b></label>
                           <select name="tipo_institucion" id="" class="form-select">
-                            <option value="publica">Pública</option>
+                            <?php
+                            if ($tipo_institucion == 'publica'){ ?>
+                            <option value="publica" selected="selected">Pública</option>
                             <option value="privada">Privada</option>
+                            <?php
+                            }else { ?>
+                            <option value="publica">Pública</option>
+                            <option value="privada" selected="selected">Privada</option>
+                            <?php
+                            }
+                              ?>
                           </select>
                         </div>
                       </div>
@@ -73,6 +82,22 @@ $id_config_institucion = $_GET['id'];
                         </div>
                       </div>
                     </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                          <label for=""><b>Estado</b></label>
+                          <select name="estado" id="" class="form-select" required>
+                            <?php
+                            if($estado == 1){ ?>
+                            <option value="ACTIVO" selected="selected">ACTIVO</option>
+                            <option value="INACTIVO">INACTIVO</option>
+                            <?php }else { ?>
+                            <option value="ACTIVO" >ACTIVO</option>
+                            <option value="INACTIVO" selected="selected">INACTIVO</option>
+                            <?php
+                            } ?>
+                          </select>
+                        </div>
+                      </div>
                       <div class="row">
                         <div class="col-md-12">
                           <label for=""><b>Dirección</b></label>

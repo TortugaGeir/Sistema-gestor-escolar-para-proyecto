@@ -10,7 +10,7 @@ include ('../../app/controllers/usuarios/datos_del_usuario.php');
 <div class= "content-wraper">
     <div class= "container">
       <div class= "row">
-      <h1>Editar Usuario: <?=$nombres;?></h1> 
+      <h1>Editar Usuario:<?=$nombres;?></h1> 
         <br> <br> <br> <br>
 
       <div class="col-md-12">
@@ -62,7 +62,7 @@ include ('../../app/controllers/usuarios/datos_del_usuario.php');
                     <div class="form-group">
                       <hr>
                       <label for=""><b>Apellidos del usuario</b></label>
-                        <input type="text" name="apellidos" value="<?=$apellidos;?>" class="form-control" >
+                        <input type="text" name="apellidos" value="<?=$apellidos;?>" class="form-control">
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -87,7 +87,22 @@ include ('../../app/controllers/usuarios/datos_del_usuario.php');
                         <input type="password" name="password-repet" class="form-control">
                       </div>
                     </div>
-                  
+                    <div class="col-md-8">
+                        <div class="form-group">
+                          <label for=""><b>Estado</b></label>
+                          <select name="estado" id="" class="form-select" required>
+                            <?php
+                            if($estado == 1){ ?>
+                            <option value="ACTIVO" selected="selected">ACTIVO</option>
+                            <option value="INACTIVO">INACTIVO</option>
+                            <?php }else { ?>
+                            <option value="ACTIVO" >ACTIVO</option>
+                            <option value="INACTIVO" selected="selected">INACTIVO</option>
+                            <?php
+                            } ?>
+                          </select>
+                        </div>
+                      </div>
                 </div>
                 <hr>
                               <!-- /.card-header -->

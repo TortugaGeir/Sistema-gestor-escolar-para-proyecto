@@ -12,10 +12,16 @@ $telefono_institucion = $_POST['telefono_institucion'];
 $rif_institucion = $_POST['rif_institucion'];
 $codigo_dea = $_POST['codigo_dea'];
 $direccion_institucion = $_POST['direccion_institucion'];
+$estado = $_POST['estado'];
+
+if($estado == "ACTIVO"){
+  $estado = 1;
+}else{
+  $estado = 0;
+}
 
 
-
-if ($_FILES['logo']['name'] !=null){
+if($_FILES['logo']['name'] !=null){
 //echo "existe una imagen";
 
 $nombre_del_archivo = date('Y-m-d-H-i-s') . '-' . $_FILES['logo']['name'];
@@ -33,7 +39,7 @@ if($logo == ""){
 }
 
 $sentencia = $pdo->prepare("UPDATE configuracion_instituciones 
-SET nombre_institucion=:nombre_institucion,logo=:logo,direccion=:direccion,tipo_institucion=:tipo_institucion,email=:email,telefono=:telefono,rif=:rif,cog_dea=:cog_dea,fyh_update=:fyh_update
+SET nombre_institucion=:nombre_institucion,logo=:logo,direccion=:direccion,tipo_institucion=:tipo_institucion,email=:email,telefono=:telefono,rif=:rif,cog_dea=:cog_dea,fyh_update=:fyh_update,estado=:estado
 WHERE id_config_institucion=:id_instituciones");
 
 $sentencia->bindParam(':nombre_institucion',$nombre_institucion);
@@ -46,6 +52,7 @@ $sentencia->bindParam(':rif',$rif_institucion);
 $sentencia->bindParam(':cog_dea',$codigo_dea);
 $sentencia->bindParam(':fyh_update',$fechaHora);
 $sentencia->bindParam(':id_instituciones',$id_config_institucion);
+$sentencia->bindParam(':estado',$estado);
 
 
 try{

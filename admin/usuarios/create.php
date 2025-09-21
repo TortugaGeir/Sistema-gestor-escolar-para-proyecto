@@ -74,6 +74,15 @@ include ('../../app/controllers/roles/listado_roles.php');
                         <input type="password" name="password-repet" class="form-control" require>
                       </div>
                     </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                          <label for=""><b>Estado</b></label>
+                          <select name="estado" id="" class="form-select" required>
+                            <option value="ACTIVO">ACTIVO</option>
+                            <option value="INACTIVO">INACTIVO</option>
+                          </select>
+                        </div>
+                      </div>
                   
                 </div>
                 <hr>

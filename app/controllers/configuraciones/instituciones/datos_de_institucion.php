@@ -2,7 +2,7 @@
 
 $id_config_institucion = $_GET['id'];
 
-$query_instituciones = $pdo->prepare("SELECT * FROM configuracion_instituciones WHERE id_config_institucion = '$id_config_institucion' and estado = '1' ");
+$query_instituciones = $pdo->prepare("SELECT * FROM configuracion_instituciones WHERE id_config_institucion = '$id_config_institucion' ");
 $query_instituciones->execute();
 $instituciones = $query_instituciones->fetchAll(PDO:: FETCH_ASSOC);
 
@@ -17,6 +17,8 @@ $codigo_dea = $instituciones['cog_dea'];
 $direccion_institucion = $instituciones['direccion'];
 $logo = $instituciones['logo'];
 $fyh_create = $instituciones['fyh_create'];
+$estado = $instituciones['estado'];
+
 }
 
 ?>

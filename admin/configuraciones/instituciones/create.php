@@ -67,6 +67,15 @@ include_once ('../../layout/parte_1.php');
                         </div>
                       </div>
                     </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                          <label for=""><b>Estado</b></label>
+                          <select name="estado" id="" class="form-select" required>
+                            <option value="ACTIVO">ACTIVO</option>
+                            <option value="INACTIVO">INACTIVO</option>
+                          </select>
+                        </div>
+                      </div>
                       <div class="row">
                         <div class="col-md-12">
                           <label for=""><b>Dirección</b></label>
