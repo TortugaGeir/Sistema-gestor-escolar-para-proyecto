@@ -284,34 +284,34 @@ if (isset($_SESSION['sesion_email'])){
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-pencil-square"></i>
+                <i class="nav-icon"><i class="bi bi-bookshelf"></i></i>
                 <p>
-                  Forms
+                  Grados
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../dist/pages/forms/general.html" class="nav-link">
+                  <a href="<?=APP_URL;?>/admin/grados" class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>General Elements</p>
+                    <p>Listado de Grados</p>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-table"></i>
+                <i class="nav-icon"><i class="bi bi-journals"></i></i>
                 <p>
-                  Tables
+                  Asignaturas 
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../dist/pages/tables/simple.html" class="nav-link">
+                  <a href="<?=APP_URL;?>/admin/asignaturas" class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Simple Tables</p>
+                    <p>Listado de Asignaturas</p>
                   </a>
                 </li>
               </ul>

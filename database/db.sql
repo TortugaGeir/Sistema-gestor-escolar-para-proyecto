@@ -87,3 +87,35 @@ CREATE TABLE niveles (
 
 INSERT INTO niveles (periodo_id ,nivel,turno,fyh_create,estado)
 VALUES ('1','INICIAL','DIURNO','2025-21-08 11:58','1');
+
+CREATE TABLE grados (
+  id_grados         INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nivel_id          INT (11) NOT NULL,
+  grado             VARCHAR (255) NOT NULL,
+  seccion           VARCHAR (255) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (nivel_id) REFERENCES niveles (id_nivel) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
+
+INSERT INTO grados (nivel_id ,grado,seccion,fyh_create,estado)
+VALUES ('1','PREESCOLAR 1°','A','2025-09-05 15:45:11','1');
+
+CREATE TABLE asignaturas (
+  id_asignaturas      INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre_asignatura   VARCHAR (255) NOT NULL,
+  descripcion         TEXT (255) NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11)
+
+)ENGINE=InnoDB;
+
+INSERT INTO asignaturas (nombre_asignatura,descripcion,fyh_create,estado)
+VALUES ('MATEMATIICAS BASICAS','Programa especialisado en en la enseñanza de las operaciones matematicas basicas','2025-09-05 15:45:11','1');
