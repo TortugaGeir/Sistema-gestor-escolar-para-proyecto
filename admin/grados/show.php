@@ -65,7 +65,7 @@ include_once('../../app/controllers/grados/datos_grados.php');
             <div class="row">
                   <div class="col-md-10">
                     <div class="form-group">
-                    <a href="<?=APP_URL;?>/admin/grados" class= "btn btn-secondary">Volver</a>
+                    <a href="<?=APP_URL;?>/admin/grados" class= "btn btn-info">Volver</a>
                     </div>
                   </div>
                 </div>

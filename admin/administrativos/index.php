@@ -1,21 +1,21 @@
 <?php
 include_once ('../../app/config.php');
 include_once ('../layout/parte_1.php');
-include_once ('../../app/controllers/usuarios/listado_de_usuarios.php');
+include_once ('../../app/controllers/administrativos/listado_administrativos.php');
 ?>
 <div class= "content-wraper">
     <div class= "container">
       <div class= "row">
-      <h1>Listado de Usuarios</h1> 
+      <h1>Listado del Personal Administrativos</h1> 
         <br> <br> <br> <br>
 
       <div class="col-md-12">
       <div class="card card-outline card-primary">
               <div class="card-header">
-                <h3 class="card-title">Usuarios Registrados</h3>
+                <h3 class="card-title">Personal Registrados</h3>
 
                 <div class="card-tools">
-                  <a href="create.php" class="btn btn-primary"><i class="bi bi-pencil-square"></i>Crear un nuevo usuario</a>
+                  <a href="create.php" class="btn btn-primary"><i class="bi bi-pencil-square"></i>Crear un nuevo administrativo</a>
                 </div>
                 <!-- /.card-tools -->
               </div>
@@ -28,29 +28,35 @@ include_once ('../../app/controllers/usuarios/listado_de_usuarios.php');
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>Rol</th>
+            <th>Carnet Identidad</th>
             <th>Correo</th>
+            <th>Profesión</th>
             <th>Estado</th>
             <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            $contador_usuarios = 0;
-            foreach ($usuarios as $usuarios) {
-              $contador_usuarios = $contador_usuarios +1;
-              $id_usuarios = $usuarios ['id_usuarios'];
-              $nombres_usuarios = $usuarios ['nombres'];
-              $Apellidos_usuarios = $usuarios ['apellidos'];
-              $Rol = $usuarios ['nombre_rol'];
-              $correo = $usuarios ['email'];
-              $estado = $usuarios ['estado'];
+            $contador_administrativos = 0;
+            foreach ($administrativos as $administrativos) {
+              $contador_administrativos = $contador_administrativos +1;
+              $id_administrativos = $administrativos ['id_administrativos'];
+              $nombres_administrativos = $administrativos ['nombres'];
+              $Apellidos_administrativos = $administrativos ['apellidos'];
+              $Rol = $administrativos ['nombre_rol'];
+              $ci = $administrativos ['ci'];
+              $correo = $administrativos ['email'];
+              $profesion = $administrativos ['profesion'];
+              $estado = $administrativos ['estado'];
               ?>
             <tr>
-              <td><?=$contador_usuarios;?></td>
-              <td><?=$nombres_usuarios;?></td>
-              <td><?=$Apellidos_usuarios;?></td>
+              <td><?=$contador_administrativos;?></td>
+              <td><?=$nombres_administrativos;?></td>
+              <td><?=$Apellidos_administrativos;?></td>
               <td><?=$Rol;?></td>
+              <td><?=$ci;?></td>
               <td><?=$correo;?></td>
+              <td><?=$profesion;?></td>
             <td>
             <?php
             if($estado == "1"){?>
@@ -65,14 +71,14 @@ include_once ('../../app/controllers/usuarios/listado_de_usuarios.php');
             </td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <a href="show.php?id=<?=$id_usuarios;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                  <a href="edit.php?id=<?=$id_usuarios;?>" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></a>
-                  <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_usuarios;?>(event)" method="post" id="miFormulario<?=$id_usuarios;?>">
-                    <input type="text" name="id_usuarios" value="<?=$id_usuarios;?>" hidden>
+                  <a href="show.php?id=<?=$id_administrativos;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                  <a href="edit.php?id=<?=$id_administrativos;?>" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></a>
+              <!--    <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_administrativos;?>(event)" method="post" id="miFormulario<?=$id_administrativos;?>">
+                    <input type="text" name="id_usuarios" value="<?=$id_administrativos;?>" hidden>
                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3"></i></button>
                   </form>
               <script>
-              function preguntar<?=$id_usuarios;?>(event) {
+              function preguntar<?=$id_administrativos;?>(event) {
                 event.preventDefault();
                   Swal.fire({
                     title: 'Eliminar registro',
@@ -85,12 +91,13 @@ include_once ('../../app/controllers/usuarios/listado_de_usuarios.php');
                     denyButtonText: 'Cancelar',
                     }).then((result) => {
                       if (result.isConfirmed) {
-                      var form = $('#miFormulario<?=$id_usuarios;?>');
+                      var form = $('#miFormulario<?=$id_administrativos;?>');
                       form.submit();
                         }
                       });
                 }
               </script>
+          -->
                 </div>
               </td>
             </tr>
@@ -107,8 +114,8 @@ include_once ('../../app/controllers/usuarios/listado_de_usuarios.php');
 </div>
 
 <?php
-include ('../layout/parte_2.php');
-include ('../../layout/mensajes.php');
+include_once ('../layout/parte_2.php');
+include_once ('../../layout/mensajes.php');
 
 
 ?>

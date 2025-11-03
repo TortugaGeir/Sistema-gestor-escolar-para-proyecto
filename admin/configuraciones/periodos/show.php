@@ -59,7 +59,7 @@ include_once('../../../app/controllers/configuraciones/periodos/dato_periodo.php
             <div class="row">
                   <div class="col-md-10">
                     <div class="form-group">
-                    <a href="<?=APP_URL;?>/admin/configuraciones/periodos" class= "btn btn-secondary">Volver</a>
+                    <a href="<?=APP_URL;?>/admin/configuraciones/periodos" class= "btn btn-info">Volver</a>
                     </div>
                   </div>
                 </div>

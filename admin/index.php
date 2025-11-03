@@ -6,6 +6,8 @@ include_once('../app/controllers/usuarios/listado_de_usuarios.php');
 include_once('../app/controllers/niveles/listado_niveles.php');
 include_once('../app/controllers/grados/listado_grados.php');
 include_once('../app/controllers/asignaturas/listado_asignaturas.php');
+include_once('../app/controllers/administrativos/listado_administrativos.php');
+include_once('../app/controllers/docentes/listado_docentes.php');
 ?>
     <div class="content-wrapper">
       <div class="container">
@@ -125,43 +127,43 @@ include_once('../app/controllers/asignaturas/listado_asignaturas.php');
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-primary">
+            <div class="small-box bg-secondary">
               <div class="inner">
                 <?php
-                $contador_usuarios = 0;
-                  foreach($usuarios as $usuarios){
-                    $contador_usuarios = $contador_usuarios + 1;
+                $contador_administrativos = 0;
+                  foreach($administrativos as $administrativos){
+                    $contador_administrativos = $contador_administrativos + 1;
                   }
                 ?>
-                <h3 class="text-light"><?=$contador_usuarios;?></h3>
+                <h3 class="text-light"><?=$contador_administrativos;?></h3>
 
-                <p class="text-light">Usuarios Registrados</p>
+                <p class="text-light">Administrativos Registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-people-fill fs-1 opacity-50"></i></i>
+                <i class="ion"><i class="bi bi-person-lines-fill fs-1 opacity-50"></i></i>
               </div>
-              <a href="<?=APP_URL;?>/admin/usuarios" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
+              <a href="<?=APP_URL;?>/admin/administrativos" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-default">
               <div class="inner">
                 <?php
-                $contador_niveles = 0;
-                  foreach($niveles as $niveles){
-                    $contador_niveles = $contador_niveles + 1;
+                $contador_docentes = 0;
+                  foreach($docentes as $docentes){
+                    $contador_docentes = $contador_docentes + 1;
                   }
                 ?>
-                <h3 class="text-light"><?=$contador_niveles;?></h3>
+                <h3 ><?=$contador_docentes;?></h3>
 
-                <p class="text-light">Niveles Registrados</p>
+                <p >Docentes Registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-bar-chart-fill fs-1 opacity-50"></i></i>
+                <i class="ion"><i class="bi bi-person-video3 fs-1 opacity-50"></i></i>
               </div>
-              <a href="<?=APP_URL;?>/admin/niveles" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
+              <a href="<?=APP_URL;?>/admin/docentes" class="small-box-footer text-dark">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
           </div>
           <!-- ./col -->

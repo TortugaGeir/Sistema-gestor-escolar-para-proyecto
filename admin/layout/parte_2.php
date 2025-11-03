@@ -1,6 +1,6 @@
 <br> <br><br><br> <br><br>
       <!--begin::To the end-->
-      <div class="float-end d-none d-sm-inline">V 1.0</div>
+      <div class="float-end d-none d-sm-inline">V 3.0</div>
       <!--end::To the end-->
       <!--begin::Copyright-->
       <strong>

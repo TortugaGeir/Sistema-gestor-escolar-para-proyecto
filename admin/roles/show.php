@@ -35,7 +35,7 @@ $id_roles = $_GET['id'];
             <div class="row">
                   <div class="col-md-10">
                     <div class="form-group">
-                    <a href="<?=APP_URL;?>/admin/roles" class= "btn btn-secondary">Volver</a>
+                    <a href="<?=APP_URL;?>/admin/roles" class= "btn btn-info">Volver</a>
                     </div>
                   </div>
                 </div>

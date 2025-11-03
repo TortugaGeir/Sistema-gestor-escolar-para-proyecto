@@ -77,7 +77,7 @@ include_once ('../../app/controllers/usuarios/datos_del_usuario.php');
             <div class="row">
                   <div class="col-md-10">
                     <div class="form-group">
-                  <a href="<?=APP_URL;?>/admin/usuarios" class= "btn btn-secondary">Volver</a>
+                  <a href="<?=APP_URL;?>/admin/usuarios" class= "btn btn-info">Volver</a>
                     </div>
                   </div>
                 </div>

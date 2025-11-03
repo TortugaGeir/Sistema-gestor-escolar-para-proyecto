@@ -38,6 +38,79 @@ CREATE TABLE usuarios (
 INSERT INTO usuarios (nombres,apellidos,rol_id,email,password,fyh_create,estado)
 VALUES ('Juan Carlos','Villa Godoy','1','admin@email.com','$2y$10$0tYmdHU9uGCIxY1f90W1EuIm54NQ8axowkxL1WzLbqO2LdNa8m3l2','2025-30-03 18:38','1');
 
+CREATE TABLE personas (
+  id_personas      INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  usuario_id      INT (11) NOT NULL,
+  nombres         VARCHAR (50) NOT NULL,
+  apellidos       VARCHAR (50) NOT NULL,
+  ci              INT (15) NOT NULL,
+  fecha_nacimiento DATETIME NOT NULL,
+  profesion       VARCHAR(50) NOT NULL,
+  direccion       TEXT NOT NULL,
+  telefono        VARCHAR(255) NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id_usuarios) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
+CREATE TABLE administrativos (
+  id_administrativos INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  personas_id        INT (11) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (personas_id) REFERENCES personas (id_personas) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
+CREATE TABLE docentes (
+  id_docentes        INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  personas_id        INT (11) NOT NULL,
+  especialidad       VARCHAR (255) NOT NULL,
+  antiguedad         VARCHAR (255) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (personas_id) REFERENCES personas (id_personas) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
+CREATE TABLE estudiante (
+  id_estudiante     INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  personas_id       INT (11) NOT NULL,
+  ci_escolar        INT (11) NOT NULL UNIQUE KEY,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (personas_id) REFERENCES personas (id_personas) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
+CREATE TABLE representantes (
+  id_representante   INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  personas_id        INT (11) NOT NULL,
+  estudiante_id      INT (11) NOT NULL,
+  parentesco         VARCHAR(50) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (personas_id) REFERENCES personas (id_personas) on delete no action on update cascade,
+  FOREIGN KEY (estudiante_id) REFERENCES estudiante (id_estudiante) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
 CREATE TABLE configuracion_instituciones (
   id_config_institucion  INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre_institucion     VARCHAR (255) NOT NULL,
@@ -119,3 +192,4 @@ CREATE TABLE asignaturas (
 
 INSERT INTO asignaturas (nombre_asignatura,descripcion,fyh_create,estado)
 VALUES ('MATEMATIICAS BASICAS','Programa especialisado en en la enseñanza de las operaciones matematicas basicas','2025-09-05 15:45:11','1');
+

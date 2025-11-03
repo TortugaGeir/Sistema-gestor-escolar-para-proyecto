@@ -9,6 +9,7 @@ if (isset($_SESSION['sesion_email'])){
   $datos_session_usuarios = $query_session->fetchAll(PDO:: FETCH_ASSOC);
     foreach ($datos_session_usuarios as $datos_session_usuarios) {
       $nombre_session_usuario = $datos_session_usuarios ['nombres'];
+      $fecha_session_usuario = $datos_session_usuarios['fyh_create'];
     }
 
 }else{
@@ -161,8 +162,8 @@ if (isset($_SESSION['sesion_email'])){
               <li class="user-header text-bg-primary">
                 <img src="https://external-preview.redd.it/kawaii-sea-turtle-digital-illustration-by-me-v0-rakD3EZE4dJ7fyPUQ4gK5-w9aE2wXCdGAuxOqXzwQqs.jpg?width=640&crop=smart&auto=webp&s=38c7fb2566a2a46f96434e645026329b3781ea4d" class="rounded-circle shadow" alt="User Image" />
                 <p>
-                  Tortuga Geir - Web Developer
-                  <small>Member since Nov. 2023</small>
+                  <?=$nombre_session_usuario;?>
+                  <small>Se unió el: <?=$fecha_session_usuario ;?></small>
                 </p>
               </li>
               <!--end::User Image-->
@@ -318,26 +319,37 @@ if (isset($_SESSION['sesion_email'])){
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon bi bi-filetype-js"></i>
+                <i class="nav-icon"><i class="bi bi-person-lines-fill"></i></i>
                 <p>
-                  Javascript
+                  Administrativos
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../dist/pages/docs/javascript/treeview.html" class="nav-link">
+                  <a href="<?=APP_URL;?>/admin/administrativos" class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Treeview</p>
+                    <p>Listado de Administrativos</p>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a href="../dist/pages/docs/browser-support.html" class="nav-link">
-                <i class="nav-icon bi bi-browser-edge"></i>
-                <p>Browser Support</p>
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-person-video3"></i></i>
+                <p>
+                  Docentes
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/docentes" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Listado de Docentes</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="../dist/pages/docs/how-to-contribute.html" class="nav-link">
