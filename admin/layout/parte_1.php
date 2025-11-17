@@ -65,6 +65,11 @@ if (isset($_SESSION['sesion_email'])){
   <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!--JQuery-->
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -352,16 +357,46 @@ if (isset($_SESSION['sesion_email'])){
               </ul>
             </li>
             <li class="nav-item">
-              <a href="../dist/pages/docs/how-to-contribute.html" class="nav-link">
-                <i class="nav-icon bi bi-hand-thumbs-up-fill"></i>
-                <p>How To Contribute</p>
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-file-person-fill"></i></i>
+                <p>
+                  Estudiantes
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/inscripciones" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Inscripción</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/estudiantes" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Listado de Estudiantes</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a href="../dist/pages/docs/faq.html" class="nav-link">
-                <i class="nav-icon bi bi-question-circle-fill"></i>
-                <p>FAQ</p>
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-cash-coin"></i></i>
+                <p>
+                  Pagos
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/pagos" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Realizar Pagos</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="../dist/pages/docs/license.html" class="nav-link">

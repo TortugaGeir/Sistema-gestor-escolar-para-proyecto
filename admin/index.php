@@ -8,6 +8,7 @@ include_once('../app/controllers/grados/listado_grados.php');
 include_once('../app/controllers/asignaturas/listado_asignaturas.php');
 include_once('../app/controllers/administrativos/listado_administrativos.php');
 include_once('../app/controllers/docentes/listado_docentes.php');
+include_once('../app/controllers/estudiantes/listado_estudiantes.php')
 ?>
     <div class="content-wrapper">
       <div class="container">
@@ -31,7 +32,7 @@ include_once('../app/controllers/docentes/listado_docentes.php');
                 <p class="text-light">Roles registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-bookmarks-fill fs-1 opacity-50"></i></i>
+                <i class="ion"><i class="bi bi-bookmarks-fill fs-1 opacity-30" style="color: white;"></i></i>
               </div>
               <a href="<?=APP_URL;?>/admin/roles" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
@@ -52,7 +53,7 @@ include_once('../app/controllers/docentes/listado_docentes.php');
                 <p class="text-light">Usuarios Registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-people-fill fs-1 opacity-50"></i></i>
+                <i class="ion"><i class="bi bi-people-fill fs-1 opacity-30" style="color: white;"></i></i>
               </div>
               <a href="<?=APP_URL;?>/admin/usuarios" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
@@ -73,7 +74,7 @@ include_once('../app/controllers/docentes/listado_docentes.php');
                 <p class="text-light">Niveles Registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-bar-chart-fill fs-1 opacity-50"></i></i>
+                <i class="ion"><i class="bi bi-bar-chart-fill fs-1 opacity-30" style="color: white;"></i></i>
               </div>
               <a href="<?=APP_URL;?>/admin/niveles" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
@@ -94,7 +95,7 @@ include_once('../app/controllers/docentes/listado_docentes.php');
                 <p class="text-light">Grados Registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-bookshelf fs-1 opacity-50"></i>
+                <i class="ion"><i class="bi bi-bookshelf fs-1 opacity-30" style="color: white;"></i>
               </div>
               <a href="<?=APP_URL;?>/admin/grados" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
@@ -119,7 +120,7 @@ include_once('../app/controllers/docentes/listado_docentes.php');
                 <p class="text-light">Asignaturas registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-journals fs-1 opacity-50"></i></i>
+                <i class="ion"><i class="bi bi-journals fs-1 opacity-30" style="color: white;"></i></i>
               </div>
               <a href="<?=APP_URL;?>/admin/asignaturas" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
@@ -140,7 +141,7 @@ include_once('../app/controllers/docentes/listado_docentes.php');
                 <p class="text-light">Administrativos Registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-person-lines-fill fs-1 opacity-50"></i></i>
+                <i class="ion"><i class="bi bi-person-lines-fill fs-1 opacity-30" style="color: white;"></i></i>
               </div>
               <a href="<?=APP_URL;?>/admin/administrativos" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
@@ -161,7 +162,7 @@ include_once('../app/controllers/docentes/listado_docentes.php');
                 <p >Docentes Registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-person-video3 fs-1 opacity-50"></i></i>
+                <i class="ion"><i class="bi bi-person-video3 fs-1 opacity-30"></i></i>
               </div>
               <a href="<?=APP_URL;?>/admin/docentes" class="small-box-footer text-dark">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
@@ -169,22 +170,22 @@ include_once('../app/controllers/docentes/listado_docentes.php');
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-dark">
               <div class="inner">
                 <?php
-                $contador_grados = 0;
-                  foreach($grados as $grados){
-                    $contador_grados = $contador_grados + 1;
+                $contador_estudiantes = 0;
+                  foreach($estudiantes as $estudiantes){
+                    $contador_estudiantes = $contador_estudiantes + 1;
                   }
                 ?>
-                <h3 class="text-light"><?=$contador_grados;?></h3>
+                <h3 class="text-light"><?=$contador_estudiantes;?></h3>
 
-                <p class="text-light">Grados Registrados</p>
+                <p class="text-light">Estudiantes Registrados</p>
               </div>
               <div class="icon">
-                <i class="ion"><i class="bi bi-bookshelf fs-1 opacity-50"></i>
+                <i class="ion"><i class="bi bi-file-person-fill fs-1 opacity-30" style="color: white;"></i>
               </div>
-              <a href="<?=APP_URL;?>/admin/grados" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
+              <a href="<?=APP_URL;?>/admin/wstudiantes" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
           </div>
           <!-- ./col -->

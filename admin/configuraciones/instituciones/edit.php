@@ -72,7 +72,7 @@ $id_config_institucion = $_GET['id'];
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>RIF</b></label>
-                          <input type="number" name="rif_institucion"  value="<?=$rif_institucion;?>" class="form-control">
+                          <input type="text" name="rif_institucion"  value="<?=$rif_institucion;?>" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">

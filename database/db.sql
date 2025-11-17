@@ -87,6 +87,7 @@ CREATE TABLE estudiante (
   id_estudiante     INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   personas_id       INT (11) NOT NULL,
   ci_escolar        INT (11) NOT NULL UNIQUE KEY,
+  foto              VARCHAR (255) NULL,
 
   fyh_create   DATETIME  NULL,
   fyh_update   DATETIME NULL,
@@ -98,18 +99,49 @@ CREATE TABLE estudiante (
 
 CREATE TABLE representantes (
   id_representante   INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  personas_id        INT (11) NOT NULL,
-  estudiante_id      INT (11) NOT NULL,
-  parentesco         VARCHAR(50) NOT NULL,
+  nombres_repe     VARCHAR (50) NOT NULL,
+  apellidos_repre VARCHAR (50) NOT NULL,
+  ci_repre         INT (15) NOT NULL,
+  fecha_nacimiento_repre DATETIME NOT NULL,
+  profesion_repre   VARCHAR(50) NOT NULL,
+  direccion_repre       TEXT NOT NULL,
+  telefono_repre        VARCHAR(255) NULL,
 
   fyh_create   DATETIME  NULL,
   fyh_update   DATETIME NULL,
-  estado       VARCHAR (11),
-
-  FOREIGN KEY (personas_id) REFERENCES personas (id_personas) on delete no action on update cascade,
-  FOREIGN KEY (estudiante_id) REFERENCES estudiante (id_estudiante) on delete no action on update cascade
+  estado       VARCHAR (11)
 
 )ENGINE=InnoDB;
+
+CREATE TABLE estudiante_representante (
+  id_est_repre     INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  estudiante_id    INT(11) NOT NULL,
+  representante_id INT(11) NOT NULL,
+  parentesco       VARCHAR(50) NOT NULL,
+
+  FOREIGN KEY (estudiante_id) REFERENCES estudiante(id_estudiante) 
+    on delete no action on update cascade,
+  FOREIGN KEY (representante_id) REFERENCES representantes(id_representante) 
+    on delete no action on update cascade
+) ENGINE=InnoDB;
+
+CREATE TABLE historial_academico (
+  id_historial   INT (11) AUTO_INCREMENT PRIMARY KEY,
+  estudiante_id  INT (11) NOT NULL,
+  grados_id      INT NOT NULL,
+  periodo_id     INT (11) NOT NULL,  -- Ej: "2023-2024"
+  estatus        VARCHAR(20) NOT NULL DEFAULT 'Cursando', 
+  fyh_create     DATETIME NULL,
+  fyh_update     DATETIME NULL,
+
+  FOREIGN KEY (estudiante_id) REFERENCES estudiante(id_estudiante) 
+    ON DELETE NO ACTION ON UPDATE CASCADE,
+  FOREIGN KEY (grados_id) REFERENCES grados(id_grados)
+    ON DELETE NO ACTION ON UPDATE CASCADE,
+    FOREIGN KEY (periodo_id) REFERENCES periodo_educativo (id_periodo) 
+    ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
 
 CREATE TABLE configuracion_instituciones (
   id_config_institucion  INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -193,3 +225,17 @@ CREATE TABLE asignaturas (
 INSERT INTO asignaturas (nombre_asignatura,descripcion,fyh_create,estado)
 VALUES ('MATEMATIICAS BASICAS','Programa especialisado en en la enseñanza de las operaciones matematicas basicas','2025-09-05 15:45:11','1');
 
+CREATE TABLE cuotas (
+  id_cuota      INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  est_repre_id  INT (11) NOT NULL,
+  mes_pagado    VARCHAR (50) NOT NULL,
+  monto_pagado  VARCHAR (15) NOT NULL,
+  fecha_pago    VARCHAR (20) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (est_repre_id) REFERENCES estudiante_representante (id_est_repre) on delete no action on update cascade
+
+)ENGINE=InnoDB;

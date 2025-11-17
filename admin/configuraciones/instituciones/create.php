@@ -57,7 +57,7 @@ include_once ('../../layout/parte_1.php');
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>RIF</b></label>
-                          <input type="number" name="rif_institucion" class="form-control" required>
+                          <input type="text" name="rif_institucion" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-6">
