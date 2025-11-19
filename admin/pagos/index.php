@@ -63,7 +63,7 @@ include_once ('../../app/controllers/estudiantes/listado_estudiantes.php');
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="contrato.php?id=<?=$id_estudiantes;?>" class="btn btn-warning btn-sm"><i class="bi bi-printer"></i></a>
-                  <a href="pagos.php?id=<?=$id_estudiantes;?>" class="btn btn-success btn-sm"><i class="bi bi-cash-coin"></i></a>
+              <!--    <a href="pagos.php?id=<?=$id_estudiantes;?>" class="btn btn-success btn-sm"><i class="bi bi-cash-coin"></i></a> -->
                 </div>
               </td>
             </tr>

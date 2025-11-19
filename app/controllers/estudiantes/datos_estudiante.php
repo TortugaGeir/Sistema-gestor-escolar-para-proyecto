@@ -9,7 +9,8 @@ INNER JOIN grados ON historial_academico.grados_id = grados.id_grados
 INNER JOIN periodo_educativo ON historial_academico.periodo_id = periodo_educativo.id_periodo
 INNER JOIN estudiante_representante ON estudiante_representante.estudiante_id = estudiante.id_estudiante
 INNER JOIN representantes ON estudiante_representante.representante_id = representantes.id_representante
-WHERE estudiante.estado ='1'");
+WHERE estudiante.estado ='1' and estudiante.id_estudiante = '$id_estudiantes
+'");
 $query_estudiantes->execute();
 $estudiantes = $query_estudiantes->fetchAll(PDO:: FETCH_ASSOC);
 

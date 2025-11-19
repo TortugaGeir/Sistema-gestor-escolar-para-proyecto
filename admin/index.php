@@ -185,7 +185,7 @@ include_once('../app/controllers/estudiantes/listado_estudiantes.php')
               <div class="icon">
                 <i class="ion"><i class="bi bi-file-person-fill fs-1 opacity-30" style="color: white;"></i>
               </div>
-              <a href="<?=APP_URL;?>/admin/wstudiantes" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
+              <a href="<?=APP_URL;?>/admin/estudiantes" class="small-box-footer text-light">Mas información <i class="fas"><i class="bi bi-arrow-right-circle"></i></i></a>
             </div>
           </div>
           <!-- ./col -->

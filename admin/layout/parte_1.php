@@ -383,9 +383,9 @@ if (isset($_SESSION['sesion_email'])){
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon"><i class="bi bi-cash-coin"></i></i>
+                <i class="nav-icon"><i class="bi bi-printer-fill"></i></i>
                 <p>
-                  Pagos
+                  Contratos
                   <i class="nav-arrow bi bi-chevron-right"></i>
                 </p>
               </a>
@@ -393,7 +393,7 @@ if (isset($_SESSION['sesion_email'])){
                 <li class="nav-item">
                   <a href="<?=APP_URL;?>/admin/pagos" class="nav-link">
                     <i class="nav-icon bi bi-circle"></i>
-                    <p>Realizar Pagos</p>
+                    <p>Contrato Estudiantil</p>
                   </a>
                 </li>
               </ul>
