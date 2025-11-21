@@ -55,21 +55,15 @@ if (isset($_SESSION['sesion_email'])){
   <!-- jsvectormap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
     integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous" />
-<!--sweetalert2-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
    <!-- DataTables -->
-  <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?=APP_URL;?>../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!--JQuery-->
-  <script
-  src="https://code.jquery.com/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="<?=APP_URL;?>/../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="<?=APP_URL;?>/../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="<?=APP_URL;?>/../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -355,6 +349,14 @@ if (isset($_SESSION['sesion_email'])){
                   </a>
                 </li>
               </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/docentes/asignacion.php" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Listado de Asignaciones</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
@@ -398,11 +400,22 @@ if (isset($_SESSION['sesion_email'])){
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="../dist/pages/docs/license.html" class="nav-link">
-                <i class="nav-icon bi bi-patch-check-fill"></i>
-                <p>License</p>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-printer-fill"></i></i>
+                <p>
+                  Contratos
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/pagos" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Contrato Estudiantil</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             
             <li class="nav-header">LABELS</li>

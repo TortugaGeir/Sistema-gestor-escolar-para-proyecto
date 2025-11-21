@@ -1,19 +1,28 @@
 <?php
 
-$id_estudiantes = $_GET ['id'];
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $id_estudiantes = $_GET ['id'];
+} else {
+    // Redirigir o mostrar un error si el ID no es válido
+    // header('Location: error.php');
+    // exit;
+    $id_estudiantes = null; // O manejar el error adecuadamente
+}
+// ... el resto del código
+
 include_once ('../../app/config.php');
 include_once ('../layout/parte_1.php');
 include_once ('../../app/controllers/roles/listado_roles.php');
 include_once('../../app/controllers/grados/listado_grados.php');
 include_once('../../app/controllers/configuraciones/periodos/listado_periodos.php');
-require_once('../../app/controllers/estudiantes/datos_estudiante.php')
+require_once('../../app/controllers/estudiantes/datos_estudiante.php');
 ?>
 
 <script src="<?=APP_URL;?>/public/js/steps_form.js"></script>
 <div class= "content-wraper">
     <div class= "container">
       <div class= "row">
-      <h1>Modificar Estudiante: <?=$nombres_estudiantes. "" .$apellidos_estudiantes;?></h1> 
+      <h1>Modificar Estudiante: <?=$nombres_estudiantes. "-" .$apellidos_estudiantes;?></h1> 
         <br> <br> <br> <br>
 
       <div class="col-md-12">
@@ -75,7 +84,7 @@ require_once('../../app/controllers/estudiantes/datos_estudiante.php')
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>Nombres del Estudiante</b></label>
-                          <input type="text" value="<?=$nombres_estudiantes;?>" class="form-control" name="nombres_estudiante">
+                          <input type="text" value="<?=htmlspecialchars($nombres_estudiantes);?>" class="form-control" name="nombres_estudiante">
                         </div>
                       </div>
                         <div class="col-md-6">
@@ -167,16 +176,17 @@ require_once('../../app/controllers/estudiantes/datos_estudiante.php')
                       <hr>
                       <label for=""><b>Grado a Cursar</b></label>
                       <a href="<?=APP_URL;?>/admin/grados/create.php"><i class="bi bi-bookmark-plus"></i></a>
-                    <select name="grados_id" id="" class="form-select">
-                      <?php
-                        foreach ($grados as $grados){?>
-                      <option value="<?=$grados ['id_grados']; ?>" <?=$grados ['id_grados']==$id_grados ? 'selected': ''?>>
-                        <?=$grados ['grado']. " - ".$grados['seccion']. " - ".$grados['turno']; ?>
+                  <select name="grados_id" id="" class="form-select">
+                    <?php
+                      foreach ($grados as $grado){ // <--- CAMBIADO $grados a $grado
+                    ?>
+                      <option value="<?=$grado ['id_grados']; ?>" <?=$grado ['id_grados']==$id_grados ? 'selected': ''?>>
+                        <?=$grado ['grado']. " - ".$grado['seccion']. " - ".$grado['turno']; ?>
                       </option>
-                      <?php
-                        }
-                      ?>
-                      </select>
+                    <?php
+                      }
+                    ?>
+                  </select>
                       
                     </div>
                   </div>

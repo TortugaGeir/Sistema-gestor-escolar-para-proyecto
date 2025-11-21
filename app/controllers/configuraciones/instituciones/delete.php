@@ -1,5 +1,5 @@
 <?php
-require_once ('../../../app/config.php');
+require_once ('../../../../app/config.php');
 
 $id_instituciones = $_POST['id_instituciones'];
 

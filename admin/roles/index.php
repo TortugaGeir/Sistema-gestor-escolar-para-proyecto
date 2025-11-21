@@ -43,12 +43,12 @@ include ('../../app/controllers/roles/listado_roles.php');
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="show.php?id=<?=$id_roles;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
                   <a href="edit.php?id=<?=$id_roles;?>" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></a>
-                  <form action="<?=APP_URL;?>/app/controllers/roles/delete.php" onclick="preguntar<?=$id_rol;?>(event)" method="post" id="miFormulario<?=$id_rol;?>">
+                  <form action="<?=APP_URL;?>/app/controllers/roles/delete.php" onclick="preguntar<?=$id_roles;?>(event)" method="post" id="miFormulario<?=$id_roles;?>">
                     <input type="text" name="id_rol" value="<?=$id_roles;?>" hidden>
                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3"></i></button>
                   </form>
             <script>
-              function preguntar<?=$id_rol;?>(event) {
+              function preguntar<?=$id_roles;?>(event) {
                 event.preventDefault();
                   Swal.fire({
                     title: 'Eliminar registro',
@@ -61,7 +61,7 @@ include ('../../app/controllers/roles/listado_roles.php');
                     denyButtonText: 'Cancelar',
                     }).then((result) => {
                       if (result.isConfirmed) {
-                      var form = $('#miFormulario<?=$id_rol;?>');
+                      var form = $('#miFormulario<?=$id_roles;?>');
                       form.submit();
                         }
                       });

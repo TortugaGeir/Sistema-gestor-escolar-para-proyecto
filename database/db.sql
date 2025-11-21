@@ -239,3 +239,21 @@ CREATE TABLE cuotas (
   FOREIGN KEY (est_repre_id) REFERENCES estudiante_representante (id_est_repre) on delete no action on update cascade
 
 )ENGINE=InnoDB;
+
+CREATE TABLE asignaciones (
+  id_asignaciones  INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  docentes_id      INT (11) NOT NULL,
+  nivel_id         INT (11) NOT NULL,
+  grados_id        INT (11) NOT NULL,
+  asignaturas_id   INT (11) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (docentes_id) REFERENCES docentes (id_docentes) on delete no action on update cascade,
+  FOREIGN KEY (nivel_id) REFERENCES niveles (id_nivel) on delete no action on update cascade,
+  FOREIGN KEY (grados_id) REFERENCES grados (id_grados) on delete no action on update cascade,
+  FOREIGN KEY (asignaturas_id) REFERENCES asignaturas (id_asignaturas) on delete no action on update cascade
+
+)ENGINE=InnoDB;
