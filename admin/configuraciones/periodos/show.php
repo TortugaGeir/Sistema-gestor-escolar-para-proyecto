@@ -31,12 +31,6 @@ include_once('../../../app/controllers/configuraciones/periodos/dato_periodo.php
                   </div>
                       <div class="col-md-8">
                         <div class="form-group">
-                          <label for=""><b>Momento</b></label>
-                            <p><?=$momento;?></p>
-                        </div>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="form-group">
                           <label for=""><b>Estado</b></label>
                         <p><?php
                           if($estado == '1'){

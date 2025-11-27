@@ -228,7 +228,7 @@ Toda modificación deberá formalizarse mediante anexo firmado por ambas partes.
 <p>
 NOVENA: ACEPTACIÓN
 <br>
-Leído el presente contrato, ambas partes manifiestan su conformidad y lo firman por duplicado a los ____ días del mes de __________________ del año ________.
+Leído el presente contrato, ambas partes manifiestan su conformidad y lo firman por duplicado a los $dia_actual días del mes de $mes_actual del año $ano_actual.
 <br><br>
 Por LA INSTITUCIÓN:
 <br>

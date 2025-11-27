@@ -3,13 +3,14 @@ session_start();
 if (isset($_SESSION['sesion_email'])){
   //echo "el usuario paso el login";
   $email_session = $_SESSION['sesion_email'];
-  $query_session = $pdo->prepare("SELECT * FROM usuarios WHERE email = '$email_session' AND id_usuarios = '1' ");
+  $query_session = $pdo->prepare("SELECT * FROM usuarios WHERE email = '$email_session' AND estado = '1' ");
   $query_session->execute();
 
   $datos_session_usuarios = $query_session->fetchAll(PDO:: FETCH_ASSOC);
     foreach ($datos_session_usuarios as $datos_session_usuarios) {
       $nombre_session_usuario = $datos_session_usuarios ['nombres'];
       $fecha_session_usuario = $datos_session_usuarios['fyh_create'];
+      $rol_session_usuario = $datos_session_usuarios ['rol_id'];
     }
 
 }else{
@@ -59,14 +60,24 @@ if (isset($_SESSION['sesion_email'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!--JQuery-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous"></script>
+  <script src="js/jquery-3.7.1.min.js"></script>
    <!-- DataTables -->
-  <link rel="stylesheet" href="<?=APP_URL;?>/../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="<?=APP_URL;?>/../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<link rel="stylesheet" href="<?=APP_URL;?>/../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   
 </head>
 <!--end::Head-->
 <!--begin::Body-->
+
+<?php 
+
+
+?>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
   <!--begin::App Wrapper-->
@@ -94,7 +105,7 @@ if (isset($_SESSION['sesion_email'])){
               <i class="bi bi-search"></i>
             </a>
           </li>
-          <!--end::Navbar Search-->
+          <!-- end::Navbar Search-->
           <!--begin::Messages Dropdown Menu-->
           <li class="nav-item dropdown">
             <a class="nav-link" data-bs-toggle="dropdown" href="#">
@@ -226,6 +237,12 @@ if (isset($_SESSION['sesion_email'])){
                   <a href="<?=APP_URL;?>/admin/roles" class="nav-link active">
                     <i class="nav-icon bi bi-circle"></i>
                     <p>Listado de Roles</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/roles/listado_permisos.php" class="nav-link active">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Listado de Permisos</p>
                   </a>
                 </li>
               </ul>
@@ -360,6 +377,56 @@ if (isset($_SESSION['sesion_email'])){
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-journal-bookmark-fill"></i></i>
+                <p>
+                  Contenidos
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/contenidos" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Crear Contenidos</p>
+                  </a>
+                </li>
+              </ul>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/contenidos/contenidos_alumnos.php" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Ver Contenidos</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+              <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-clipboard-check-fill"></i></i>
+                <p>
+                  Calificaciones
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/calificaciones" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Calificar</p>
+                  </a>
+                </li>
+              </ul>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/calificaciones/inicio_alumno.php" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Ver Calificación</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
                 <i class="nav-icon"><i class="bi bi-file-person-fill"></i></i>
                 <p>
                   Estudiantes
@@ -400,24 +467,6 @@ if (isset($_SESSION['sesion_email'])){
                 </li>
               </ul>
             </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon"><i class="bi bi-printer-fill"></i></i>
-                <p>
-                  Contratos
-                  <i class="nav-arrow bi bi-chevron-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?=APP_URL;?>/admin/pagos" class="nav-link">
-                    <i class="nav-icon bi bi-circle"></i>
-                    <p>Contrato Estudiantil</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            
             <li class="nav-header">LABELS</li>
             <li class="nav-item">
               <a href="#" class="nav-link">

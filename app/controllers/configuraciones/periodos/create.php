@@ -2,7 +2,6 @@
 require_once ('../../../../app/config.php');
 
 $periodo = $_POST['periodo'];
-$momento = $_POST['momento'];
 $estado = $_POST['estado'];
 
 if($estado == "ACTIVO"){
@@ -12,11 +11,10 @@ if($estado == "ACTIVO"){
 }
 
 
-$sentencia = $pdo->prepare ("INSERT INTO periodo_educativo (periodo,momento,fyh_create,estado)
-  VALUES (:periodo,:momento,:fyh_create,:estado)");
+$sentencia = $pdo->prepare ("INSERT INTO periodo_educativo (periodo,fyh_create,estado)
+  VALUES (:periodo,:fyh_create,:estado)");
 
   $sentencia->bindParam(':periodo',$periodo);
-  $sentencia->bindParam(':momento',$momento);
   $sentencia->bindParam(':fyh_create',$fechaHora);
   $sentencia->bindParam(':estado',$estado);
   

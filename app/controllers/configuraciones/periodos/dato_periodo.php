@@ -9,7 +9,6 @@ $periodos = $query_periodo->fetchAll(PDO:: FETCH_ASSOC);
 foreach($periodos as $periodos){
 
 $periodo = $periodos['periodo'];
-$momento = $periodos['momento'];
 $estado = $periodos['estado'];
 
 

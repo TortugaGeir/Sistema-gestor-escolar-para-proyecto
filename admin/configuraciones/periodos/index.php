@@ -27,7 +27,6 @@ include_once ('../../../app/controllers/configuraciones/periodos/listado_periodo
             <tr>
             <th>Nro.</th>
             <th>Perido Escolar</th>
-            <th>Momento</th>
             <th>Estado</th>
             <th>Acciones</th>
             </tr>
@@ -39,13 +38,11 @@ include_once ('../../../app/controllers/configuraciones/periodos/listado_periodo
               $contador_periodos = $contador_periodos +1;
               $id_periodo = $periodos ['id_periodo'];
               $periodo = $periodos ['periodo'];
-              $momento = $periodos ['momento'];
               $estado = $periodos ['estado'];
               ?>
             <tr>
               <td><?=$contador_periodos;?></td>
               <td><?=$periodo;?></td>
-              <td><?=$momento;?></td>
               <td>
             <?php
             if($estado == "1"){?>

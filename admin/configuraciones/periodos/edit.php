@@ -31,31 +31,6 @@ include_once('../../../app/controllers/configuraciones/periodos/dato_periodo.php
                       <input type="text" value="<?=$periodo;?>" redonly class= "form-control" name="periodo" Required>
                     </div>
                   </div>
-                      <div class="col-md-8">
-                        <div class="form-group">
-                          <label for=""><b>Momento</b></label>
-                          <select name="momento" id="" class="form-select" required>
-                            <?php  
-                              if ($momento == '1°'){ ?>
-                            <option value="1°" selected="selected">1°</option>
-                            <option value="2°">2°</option>
-                            <option value="3°">3°</option>
-                            <?php
-                              } if ($momento == '2°') { ?>
-                            <option value="1°">1°</option>
-                            <option value="2°" selected="selected">2°</option>
-                            <option value="3°">3°</option>
-                            <?php
-                              } else { ?>
-                            <option value="1°">1°</option>
-                            <option value="2°">2°</option>
-                            <option value="3°" selected="selected">3°</option>
-                          </select>
-                          <?php
-                              }
-                            ?>
-                        </div>
-                      </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><b>Estado</b></label>

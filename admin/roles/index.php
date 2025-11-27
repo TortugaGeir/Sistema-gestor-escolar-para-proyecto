@@ -1,7 +1,7 @@
 <?php
-include ('../../app/config.php');
-include ('../layout/parte_1.php');
-include ('../../app/controllers/roles/listado_roles.php');
+include_once ('../../app/config.php');
+include_once ('../layout/parte_1.php');
+include_once ('../../app/controllers/roles/listado_roles.php');
 ?>
 <div class= "content-wraper">
     <div class= "container">
@@ -21,7 +21,7 @@ include ('../../app/controllers/roles/listado_roles.php');
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <table  id="example2" class= "table table-striped table-hover">
+              <table  id="example1" class= "table table-striped table-hover">
           <thead>
             <tr>
             <th>Nro.</th>
@@ -41,6 +41,7 @@ include ('../../app/controllers/roles/listado_roles.php');
               <td><?=$nombre_rol;?></td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
+               
                   <a href="show.php?id=<?=$id_roles;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
                   <a href="edit.php?id=<?=$id_roles;?>" class="btn btn-success btn-sm"><i class="bi bi-pen"></i></a>
                   <form action="<?=APP_URL;?>/app/controllers/roles/delete.php" onclick="preguntar<?=$id_roles;?>(event)" method="post" id="miFormulario<?=$id_roles;?>">
@@ -67,6 +68,33 @@ include ('../../app/controllers/roles/listado_roles.php');
                       });
                 }
               </script>
+                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalAsignacionrol">
+                    <i class="bi bi-check2-circle"></i>
+                  </button>
+
+                <div class="modal fade " id="modalAsignacionrol" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                              <div class="modal-header" style="text-align: center; background-color:khaki">
+                                <h5 class="modal-title" id="exampleModalLabel"><b>Asignación de Permisos</b></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                              <form action="<?=APP_URL;?>/app/controllers/docentes/create_asignaciones.php" method="post">
+                                    <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                              </div>
+                                </form>
+                            </div>
+                          </div>
+                </div>
+</div>
                 </div>
               </td>
             </tr>
@@ -84,26 +112,61 @@ include ('../../app/controllers/roles/listado_roles.php');
 
 
 <?php
-include ('../layout/parte_2.php');
-include ('../../layout/mensajes.php');
+include_once ('../layout/parte_2.php');
+include_once ('../../layout/mensajes.php');
 
 
 ?>
 <!-- Page specific script -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+<<script>
+    $(function () {
+        $("#example1").DataTable({
+            "pageLength": 5,
+            "language": {
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Roles",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Roles",
+                "infoFiltered": "(Filtrado de _MAX_ total Roles)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Roles",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscador:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            "responsive": true, "lengthChange": true, "autoWidth": false,
+            buttons: [{
+                extend: 'collection',
+                text: 'Reportes',
+                orientation: 'landscape',
+                buttons: [{
+                    text: 'Copiar',
+                    extend: 'copy',
+                }, {
+                    extend: 'pdf'
+                },{
+                    extend: 'csv'
+                },{
+                    extend: 'excel'
+                },{
+                    text: 'Imprimir',
+                    extend: 'print'
+                }
+                ]
+            },
+                {
+                    extend: 'colvis',
+                    text: 'Visor de columnas',
+                    collectionLayout: 'fixed three-column'
+                }
+            ],
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
-  });
 </script>

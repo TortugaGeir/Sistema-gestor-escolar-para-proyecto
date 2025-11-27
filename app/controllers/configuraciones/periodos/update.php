@@ -4,7 +4,6 @@ require_once ('../../../../app/config.php');
 $id_periodo = $_POST['id_periodo'];
 
 $periodo = $_POST['periodo'];
-$momento = $_POST['momento'];
 $estado = $_POST['estado'];
 
 if($estado == "ACTIVO"){
@@ -15,12 +14,11 @@ if($estado == "ACTIVO"){
 
 
 $sentencia = $pdo->prepare ("UPDATE periodo_educativo 
-SET periodo=:periodo ,momento=:momento,fyh_update=:fyh_update,estado=:estado 
+SET periodo=:periodo,fyh_update=:fyh_update,estado=:estado 
 WHERE id_periodo=:id_periodo");
 
   
   $sentencia->bindParam(':periodo',$periodo);
-  $sentencia->bindParam(':momento',$momento);
   $sentencia->bindParam(':fyh_update',$fechaHora);
   $sentencia->bindParam(':estado',$estado);
   $sentencia->bindParam(':id_periodo',$id_periodo);

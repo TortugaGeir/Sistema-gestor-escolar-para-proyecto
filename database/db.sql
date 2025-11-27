@@ -257,3 +257,63 @@ CREATE TABLE asignaciones (
   FOREIGN KEY (asignaturas_id) REFERENCES asignaturas (id_asignaturas) on delete no action on update cascade
 
 )ENGINE=InnoDB;
+
+CREATE TABLE contenido(
+  id_contenido     INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  asignaciones_id  INT (11) NOT NULL,
+  titulo          VARCHAR (100) NOT NULL,
+  descripcion     VARCHAR (255) NOT NULL,
+  material        VARCHAR (255) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (asignaciones_id) REFERENCES asignaciones (id_asignaciones) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
+CREATE TABLE calificaciones (
+  id_calificacion  INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  docentes_id      INT (11) NOT NULL,
+  estudiante_id    INT (11) NOT NULL,
+  asignaturas_id    INT (11) NOT NULL,
+  nota_1°          VARCHAR (10) NOT NULL,
+  nota_2°          VARCHAR (10) NOT NULL,
+  nota_3°          VARCHAR (10) NOT NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (docentes_id) REFERENCES docentes (id_docentes) on delete no action on update cascade,
+  FOREIGN KEY (estudiante_id) REFERENCES estudiante (id_estudiante) on delete no action on update cascade,
+  FOREIGN KEY (asignaturas_id) REFERENCES asignaturas (id_asignaturas) on delete no action on update cascade
+
+)ENGINE=InnoDB;
+
+CREATE TABLE permisos (
+  id_permisos      INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre           VARCHAR (15) NOT NULL,
+  ruta             TEXT NOT NULL,
+  
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11)
+
+)ENGINE=InnoDB;
+
+CREATE TABLE roles_permisos (
+  id_rol_per     INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  permisos_id    INT (11) NOT  NULL,
+  rol_id         INT (11) NOT  NULL,
+
+  fyh_create   DATETIME  NULL,
+  fyh_update   DATETIME NULL,
+  estado       VARCHAR (11),
+
+  FOREIGN KEY (permisos_id) REFERENCES permisos (id_permisos) on delete no action on update cascade,
+  FOREIGN KEY (rol_id) REFERENCES roles (id_roles) on delete no action on update cascade
+
+)ENGINE=InnoDB;

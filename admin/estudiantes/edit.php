@@ -200,7 +200,7 @@ require_once('../../app/controllers/estudiantes/datos_estudiante.php');
                         foreach ($periodos as $periodos){
                           if($periodos['estado']=="1"){?>
                       <option value="<?=$periodos ['id_periodo']; ?>" <?=$periodos ['id_periodo']==$id_periodo ? 'selected': ''?>>
-                        <?=$periodos ['periodo']. " - ".$periodos ['momento']; ?>
+                        <?=$periodos ['periodo']; ?>
                       </option>
                       <?php
                           }

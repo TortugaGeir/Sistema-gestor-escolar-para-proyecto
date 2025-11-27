@@ -28,16 +28,6 @@ include_once ('../../layout/parte_1.php');
                   </div>
                       <div class="col-md-8">
                         <div class="form-group">
-                          <label for=""><b>Momento</b></label>
-                          <select name="momento" id="" class="form-select" required>
-                            <option value="1°">1°</option>
-                            <option value="2°">2°</option>
-                            <option value="3°">3°</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="form-group">
                           <label for=""><b>Estado</b></label>
                           <select name="estado" id="" class="form-select" required>
                             <option value="ACTIVO">ACTIVO</option>

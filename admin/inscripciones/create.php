@@ -173,7 +173,7 @@ include_once('../../app/controllers/configuraciones/periodos/listado_periodos.ph
                         foreach ($periodos as $periodos){
                           if($periodos['estado']=="1"){?>
                       <option value="<?=$periodos ['id_periodo']; ?>" >
-                        <?=$periodos ['periodo']. " - ".$periodos ['momento']; ?>
+                        <?=$periodos ['periodo']; ?>
                       </option>
                       <?php
                           }
