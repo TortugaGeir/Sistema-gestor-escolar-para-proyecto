@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if (isset($_SESSION['sesion_email'])){
   //echo "el usuario paso el login";
@@ -17,6 +18,7 @@ if (isset($_SESSION['sesion_email'])){
   //echo " el usuario no realizo el login";
   header('Location:'.APP_URL."/login");
 }
+
 ?>
 
 <!doctype html>
@@ -69,6 +71,9 @@ if (isset($_SESSION['sesion_email'])){
     <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+      <!-- CHART JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>   
+
   
 </head>
 <!--end::Head-->
@@ -107,11 +112,11 @@ if (isset($_SESSION['sesion_email'])){
           </li>
           <!-- end::Navbar Search-->
           <!--begin::Messages Dropdown Menu-->
-          <li class="nav-item dropdown">
+          <!--<li class="nav-item dropdown"> 
             <a class="nav-link" data-bs-toggle="dropdown" href="#">
               <i class="bi bi-chat-text"></i>
               <span class="navbar-badge badge text-bg-danger"></span>
-            </a>
+            </a> -->
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
               <a href="#" class="dropdown-item">
                 <!--begin::Message-->
@@ -122,35 +127,69 @@ if (isset($_SESSION['sesion_email'])){
               <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
             </div>
-          </li>
+          </li> 
           <!--end::Messages Dropdown Menu-->
           <!--begin::Notifications Dropdown Menu-->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-bs-toggle="dropdown" href="#">
-              <i class="bi bi"><i class="bi bi-bell"></i></i>
-              <span class="navbar-badge badge text-bg-warning"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-              <span class="dropdown-item dropdown-header">15 Notifications</span>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="bi bi-envelope me-2"></i> 4 new messages
-                <span class="float-end text-secondary fs-7">3 mins</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="bi bi-people-fill me-2"></i> 8 friend requests
-                <span class="float-end text-secondary fs-7">12 hours</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
-                <span class="float-end text-secondary fs-7">2 days</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
-            </div>
-          </li>
+          <?php 
+          $query_sql = $pdo->prepare("SELECT * FROM estudiante WHERE fyh_create= '$fechaHora' ORDER BY id_estudiante ASC LIMIT 5");
+
+          $query_sql->execute();
+          $count = $query_sql->fetchAll(PDO:: FETCH_ASSOC);
+
+          $contador_notificaciones = 0;
+          foreach($count as $conteo){
+            $contador_notificaciones = $contador_notificaciones +1;
+          }
+          ?>
+         <li class="nav-item dropdown">
+    <a class="nav-link" data-bs-toggle="dropdown" href="#">
+        <i class="bi bi"><i class="bi bi-bell"></i></i>
+        
+        <?php if ($contador_notificaciones > 0): ?> 
+            <span class="badge badge-danger navbar-badge"><?=$contador_notificaciones;?></span>
+        <?php endif; ?>
+        
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+        <?php 
+        if($contador_notificaciones > 0){
+            // 2. Cabecera del Dropdown (Se muestra solo si hay notificaciones)
+            ?>
+            <span class="dropdown-item dropdown-header"><?=$contador_notificaciones;?> Notificaciones</span>
+            <div class="dropdown-divider"></div>
+            
+            <?php 
+            // 3. ITERACIÓN DINÁMICA: Recorre el array $count para mostrar cada notificación
+            // Usaremos la variable $notificacion para cada elemento del bucle.
+            foreach ($count as $notificacion){ 
+            ?>
+                <a href="<?=APP_URL;?>/admin/estudiantes" class="dropdown-item">
+                    <i class="bi bi-envelope me-2"></i> 
+                    
+                    <?php 
+                    // Si $notificacion es un objeto/array, podrías acceder a sus datos aquí:
+                    // echo $notificacion->titulo; 
+                    ?>
+                    
+                    Se ha registrado un nuevo alumno
+                </a>
+                <div class="dropdown-divider"></div>
+                <?php
+            } // Cierre del bucle foreach
+            ?>
+            
+            <a href="#" class="dropdown-item dropdown-footer"> Ver más </a>
+            
+            <?php
+        } else { 
+            // 4. Mensaje "No hay notificaciones" (Se muestra si $contador_notificaciones es 0)
+            ?>
+            <span class="dropdown-item text-muted">No hay Notificaciones</span>
+        <?php
+        }
+        ?>
+    </div>
+</li>
           <!--end::Notifications Dropdown Menu-->
           <!--begin::Fullscreen Toggle-->
           <li class="nav-item">
@@ -223,7 +262,9 @@ if (isset($_SESSION['sesion_email'])){
       <div class="sidebar-wrapper">
         <nav class="mt-2">
           <!--begin::Sidebar Menu-->
+          
           <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+            <?php if ($rol_session_usuario == 1): // Administrador ?>
             <li class="nav-item">
               <a href="#" class="nav-link active">
                 <i class="nav-icon bi"><i class="bi bi-backpack3"></i></i>
@@ -239,12 +280,12 @@ if (isset($_SESSION['sesion_email'])){
                     <p>Listado de Roles</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                <!--<li class="nav-item">
                   <a href="<?=APP_URL;?>/admin/roles/listado_permisos.php" class="nav-link active">
                     <i class="nav-icon bi bi-circle"></i>
                     <p>Listado de Permisos</p>
                   </a>
-                </li>
+                </li> -->
               </ul>
             </li>
 
@@ -440,7 +481,9 @@ if (isset($_SESSION['sesion_email'])){
                     <p>Inscripción</p>
                   </a>
                 </li>
+
               </ul>
+              
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="<?=APP_URL;?>/admin/estudiantes" class="nav-link">
@@ -487,6 +530,139 @@ if (isset($_SESSION['sesion_email'])){
               </a>
             </li>
           </ul>
+          <?php endif; // Fin if Todos los roles ?>
+
+
+        <?php if ( $rol_session_usuario == 7): // Admin o Docente ?>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-journal-bookmark-fill"></i></i>
+                <p>
+                  Contenidos
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/contenidos" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Crear Contenidos</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+              <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-clipboard-check-fill"></i></i>
+                <p>
+                  Calificaciones
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/calificaciones" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Calificar</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-file-person-fill"></i></i>
+                <p>
+                  Estudiantes
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/inscripciones" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Inscripción</p>
+                  </a>
+                </li>
+
+              </ul>
+              <li class="nav-header">LABELS</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-danger"></i>
+                <p class="text">Important</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-warning"></i>
+                <p>Warning</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-info"></i>
+                <p>Informational</p>
+              </a>
+            </li>
+          </ul>
+         <?php endif; // Fin if Todos los roles ?>
+        <?php if ( $rol_session_usuario == 16): // Admin o Docente ?>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-journal-bookmark-fill"></i></i>
+                <p>
+                  Contenidos
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/contenidos/contenidos_alumnos.php" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Ver Contenidos</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+              <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon"><i class="bi bi-clipboard-check-fill"></i></i>
+                <p>
+                  Calificaciones
+                  <i class="nav-arrow bi bi-chevron-right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?=APP_URL;?>/admin/calificaciones/inicio_alumno.php" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Ver Calificación</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+              </ul>
+               <li class="nav-header">LABELS</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-danger"></i>
+                <p class="text">Important</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-warning"></i>
+                <p>Warning</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-info"></i>
+                <p>Informational</p>
+              </a>
+            </li>
+          </ul>
+                          <?php endif; // Fin if Todos los roles ?>
           <!--end::Sidebar Menu-->
         </nav>
       </div>

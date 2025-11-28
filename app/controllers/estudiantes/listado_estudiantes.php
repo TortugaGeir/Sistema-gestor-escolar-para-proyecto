@@ -1,6 +1,7 @@
 <?php
 
-$query_estudiantes = $pdo->prepare("SELECT * FROM usuarios INNER JOIN roles 
+$query_estudiantes = $pdo->prepare("SELECT 
+ * FROM usuarios INNER JOIN roles 
 ON usuarios.rol_id= roles.id_roles
 INNER JOIN personas ON personas.usuario_id = usuarios.id_usuarios
 INNER JOIN estudiante ON estudiante.personas_id = personas.id_personas

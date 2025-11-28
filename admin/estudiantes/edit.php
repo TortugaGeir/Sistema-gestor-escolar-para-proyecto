@@ -171,25 +171,6 @@ require_once('../../app/controllers/estudiantes/datos_estudiante.php');
                   <div class="card-body">
                     <!--Formulario-->
                 <div class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <hr>
-                      <label for=""><b>Grado a Cursar</b></label>
-                      <a href="<?=APP_URL;?>/admin/grados/create.php"><i class="bi bi-bookmark-plus"></i></a>
-                  <select name="grados_id" id="" class="form-select">
-                    <?php
-                      foreach ($grados as $grado){ // <--- CAMBIADO $grados a $grado
-                    ?>
-                      <option value="<?=$grado ['id_grados']; ?>" <?=$grado ['id_grados']==$id_grados ? 'selected': ''?>>
-                        <?=$grado ['grado']. " - ".$grado['seccion']. " - ".$grado['turno']; ?>
-                      </option>
-                    <?php
-                      }
-                    ?>
-                  </select>
-                      
-                    </div>
-                  </div>
                 <div class="col-md-4">
                     <div class="form-group">
                       <hr>

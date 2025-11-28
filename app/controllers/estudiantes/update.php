@@ -11,7 +11,6 @@ $id_est_repre = $_POST['id_est_repre'];
 
 $rol_id = $_POST['rol_id'];
 $periodo_id = $_POST['periodo_id'];
-$grado_id = $_POST['grados_id'] ?? null;
 $nombres_est = $_POST['nombres_estudiante'];
 $nombres_repre = $_POST['nombres_repre'];
 $apellidos_est = $_POST['apellidos_estudiante'];
@@ -133,11 +132,10 @@ $sentencia->bindParam(':parentesco',$parentesco);
 $sentencia->execute();
 
 $sentencia = $pdo->prepare("UPDATE historial_academico
-SET grados_id=:grados_id,periodo_id=:periodo_id,fyh_update=:fyh_update
+SET periodo_id=:periodo_id,fyh_update=:fyh_update
 WHERE id_historial=:id_historial");
 
 $sentencia->bindParam(':id_historial',$id_historial);
-$sentencia->bindParam(':grados_id',$grado_id);
 $sentencia->bindParam(':periodo_id',$periodo_id);
 $sentencia->bindParam(':fyh_update',$fechaHora);
 
