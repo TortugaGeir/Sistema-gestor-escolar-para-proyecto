@@ -159,6 +159,7 @@ try{
 
 
   }catch (Exception $exception) {
+    $pdo->rollBack();
    session_start();
         $_SESSION['titulo'] = "Opps";
         $_SESSION['mensaje'] = "El correo registrado ya existe en la base de datos";
