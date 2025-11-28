@@ -102,14 +102,16 @@ if($password == ""){
     <?php
       }
     } catch(Exception $exception){
+  session_start();
+        $_SESSION['titulo'] = "Opps";
+        $_SESSION['mensaje'] = "El correo registrado ya existe en la base de datos";
+        $_SESSION['icono'] = "error";
+ ?>
+  <script>
 
-      echo "Error en la base de datos: " . $exception->getMessage();
-    ?>
-      <script>
-
-      window.history.back();
-      </script>
-    <?php
+  window.history.back();
+  </script>
+<?php
     }
 
     }else{

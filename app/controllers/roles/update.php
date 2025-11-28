@@ -36,7 +36,16 @@ if($nombre_rol == ""){
 
   }catch (Exception $exception) {
 
-echo "Error en la base de datos: " . $exception->getMessage();
+  session_start();
+        $_SESSION['titulo'] = "Opps";
+        $_SESSION['mensaje'] = "Este rol ya existe en la base de datos, vuelva a intentar";
+        $_SESSION['icono'] = "error";
+ ?>
+  <script>
+
+  window.history.back();
+  </script>
+<?php
   
 
 }

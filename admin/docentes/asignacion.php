@@ -116,12 +116,12 @@ foreach ($asignaciones_docente as $asignacion) { // Ejemplo de cómo debería se
                                 <td><center><?=$asignacion['seccion'];?></center></td>
                                 <td><center><?=$asignacion['nombre_asignatura'];?></center></td>
                                 <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
+              <!--  <div class="btn-group" role="group" aria-label="Basic example">
                   <a class="btn btn-success btn-sm"  data-bs-toggle="modal" data-bs-target="#modalEdicion<?=$id_asignacion;?>"><i class="bi bi-pen"></i></a>
 
                   <!-- Modal -->
 
-                  <div class="modal fade" id="modalEdicion<?=$id_asignacion;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!--  <div class="modal fade" id="modalEdicion<?=$id_asignacion;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="text-align: center; background-color:cadetblue">
@@ -204,7 +204,7 @@ foreach ($asignaciones_docente as $asignacion) { // Ejemplo de cómo debería se
         </form>
     </div>
   </div>
-</div>
+</div> -->
                 <form action="<?=APP_URL;?>/app/controllers/docentes/delete_asignaciones.php" onclick="preguntar<?=$id_asignacion?>(event)" method="post" id="miFormulario<?=$id_asignacion;?>">
                     <input type="text" name="id_asignacion" value="<?=$id_asignacion;?>" hidden>
                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3"></i></button>
@@ -253,7 +253,6 @@ foreach ($asignaciones_docente as $asignacion) { // Ejemplo de cómo debería se
             </tr>
               <?php
             } 
-             
             ?>
 
           </tbody>

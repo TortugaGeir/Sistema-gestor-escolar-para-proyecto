@@ -33,7 +33,16 @@ $sentencia = $pdo->prepare ("INSERT INTO grados (nivel_id,grado,seccion,fyh_crea
 
 
   }catch (Exception $exception) {
-  echo "Error en la base de datos: " . $exception->getMessage();
+    session_start();
+        $_SESSION['titulo'] = "Opps";
+        $_SESSION['mensaje'] = "Datos no coincidentes, vuelva a intentar";
+        $_SESSION['icono'] = "error";
+ ?>
+  <script>
+
+  window.history.back();
+  </script>
+<?php
   }
   
 

@@ -159,5 +159,14 @@ try{
 
 
   }catch (Exception $exception) {
-  echo "Error en la base de datos: " . $exception->getMessage();
+   session_start();
+        $_SESSION['titulo'] = "Opps";
+        $_SESSION['mensaje'] = "El correo registrado ya existe en la base de datos";
+        $_SESSION['icono'] = "error";
+ ?>
+  <script>
+
+  window.history.back();
+  </script>
+<?php
   }
